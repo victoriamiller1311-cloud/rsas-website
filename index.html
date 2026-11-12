@@ -74,6 +74,27 @@ img{max-width:100%;display:block}
 .title .side{text-align:left;display:flex;gap:14px;flex-wrap:wrap}
 .btn.quiet{background:transparent;color:#fff;border:1.5px solid #fff;box-shadow:none}
 .btn.quiet:hover,.btn.quiet:focus-visible{background:#fff;color:#000}
+
+/* defined section titles */
+h2.sec{font:300 clamp(46px,6.2vw,96px)/1 var(--serif)!important;letter-spacing:-.01em;margin:0 0 44px!important;padding-top:28px;border-top:1px solid #fff;display:inline-block;padding-right:.4em}
+.viewing-head h2.sec{margin-bottom:0!important}
+.viewing-head{align-items:flex-end}
+.arrows{display:flex;gap:12px}
+.arrow{width:60px;height:60px;border:1.5px solid #fff;border-radius:4px;background:transparent;color:#fff;font-size:24px;cursor:pointer;transition:background .3s,color .3s}
+.arrow:hover,.arrow:focus-visible{background:#fff;color:#000}
+.work .frame.matted{background:#f3f0e8;padding:11%;display:flex;align-items:center;justify-content:center;border-color:#1a140f;outline:1px solid #6e5a33}
+.work .frame.matted img{max-height:100%;box-shadow:2px 3px 8px rgba(0,0,0,.35)}
+.viewing .btn.quiet{margin-top:34px}
+.press{padding:clamp(80px,10vw,140px) 0;border-top:1px solid var(--hair)}
+.press-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)}
+.press article{border:1px solid #2a2a2a;padding:clamp(26px,3vw,44px);background:linear-gradient(160deg,#0d0c0a,#000)}
+.press article span{font-size:13px;color:#9a9a9a}
+.press article h3{margin:10px 0 12px;font:400 clamp(26px,2.6vw,36px)/1.15 var(--serif)}
+.press article p{margin:0 0 6px;color:#b5b5b5}
+.press .btn{margin-top:20px}
+.invite{overflow:hidden}
+.invite-lines{position:absolute;left:50%;top:-10%;height:130%;transform:translateX(-50%) rotate(3deg);opacity:.5}
+@media (max-width:820px){.press-grid{grid-template-columns:1fr}.arrows{display:none}h2.sec{margin-bottom:30px!important}}
 /* sections */
 .wrap{padding:0 clamp(20px,4vw,56px);max-width:1440px;margin:0 auto}
 section{position:relative}
@@ -82,7 +103,7 @@ section{position:relative}
 .statement p span{color:#6f6f6f}
 .stmt{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:6vw}
 .hang{position:relative;height:clamp(380px,46vw,620px);perspective:1100px}
-.hang div{position:absolute;aspect-ratio:3/4;background:#ddd center/cover;border:8px solid #0e0e0e;outline:1px solid #2a2a2a;box-shadow:0 40px 80px -20px #000;transition:transform .2s linear}
+.hang div{position:absolute;aspect-ratio:3/4;background-size:cover!important;background:#ddd center/cover;border:8px solid #0e0e0e;outline:1px solid #2a2a2a;box-shadow:0 40px 80px -20px #000;transition:transform .2s linear}
 .hang div:first-child{width:62%;left:0;top:0;transform:rotateY(18deg) translateY(var(--p1,0px))}
 .hang div:last-child{width:46%;right:0;bottom:0;transform:rotateY(-14deg) translateY(var(--p2,0px));filter:grayscale(.3)}
 
@@ -177,6 +198,7 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
     <a href="artists-we-follow.html">Artists</a>
     <a href="selling.html">Private sales</a>
     <a href="about.html">About</a>
+    <a href="#press">Press</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -199,29 +221,29 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
   <section class="statement">
     <div class="wrap stmt">
       <p>We sell works on behalf of private owners and families. <span>Quietly, with their written authority, and with the provenance researched first.</span></p>
-      <div class="hang" aria-hidden="true"><div style="background-image:url(assets/art/a4.svg)"></div><div style="background-image:url(assets/art/a5.svg)"></div></div>
+      <div class="hang" aria-hidden="true"><div style="background-image:url(assets/abstract/gesture-1.jpg)"></div><div style="background-image:url(assets/abstract/orbit-1.jpg)"></div></div>
     </div>
   </section>
 
 
   <section class="offer" aria-labelledby="of">
     <div class="wrap">
-      <h2 id="of">What we offer</h2>
+      <h2 id="of" class="sec">What We Offer</h2>
       <details><summary>Private sales<em>For owners and families</em></summary><p>We sell works from private and family collections without public exposure. Each work is offered with the owner's written authority, after its provenance has been researched.</p><a href="selling.html">Selling through RSAS</a></details>
       <details><summary>Acquisitions<em>For collectors</em></summary><p>We find the work, check it and negotiate the price. Many of the works we place are never offered publicly.</p><a href="buying.html">Buying through RSAS</a></details>
       <details><summary>Research<em>Before you commit</em></summary><p>A written account of an artist's market: what galleries charge, what collectors have paid on resale, and where the evidence stops.</p><a href="research.html">How our research works</a></details>
-      <details><summary>Hotels and residences<em>Bought or rented</em></summary><p>Collections for hotels, homes and design projects, from a single canvas to a whole building.</p><a href="corporate-and-hospitality.html">Corporate and hospitality</a></details>
+      <details><summary>Hotels and Residences<em>Bought or rented</em></summary><p>Collections for hotels, homes and design projects, from a single canvas to a whole building.</p><a href="corporate-and-hospitality.html">Corporate and hospitality</a></details>
     </div>
   </section>
 
   <section class="viewing" aria-labelledby="vr">
     <div class="wrap viewing-head">
-      <h2 id="vr">Available now</h2>
-      <a href="current-works.html">All current works</a>
+      <h2 id="vr" class="sec">Available Now</h2>
+      <div class="arrows"><button type="button" class="arrow" data-dir="-1" aria-label="Previous works">&#8592;</button><button type="button" class="arrow" data-dir="1" aria-label="More works">&#8594;</button></div>
     </div>
     <div class="track" id="track">
       <a class="work" href="current-works.html">
-        <div class="frame" style="background-image:url(assets/art/chagall.jpg)"></div>
+        <div class="frame matted"><img src="assets/art/chagall-sheet.jpg" alt="Marc Chagall, Moses with the Tablets of the Law"></div>
         <h3>Marc Chagall</h3>
         <p>Moses with the Tablets of the Law. Ink and pencil on paper. Certified by Sotheby's.</p>
         <span class="tag">Price on request</span>
@@ -234,11 +256,12 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
       </a>
       <div class="work soon"><div class="frame veiled"><span>New artists<br>announced soon</span></div></div>
     </div>
+    <div class="wrap"><a class="btn quiet" href="current-works.html">View all current works</a></div>
   </section>
 
   <section class="where" aria-labelledby="wh">
     <div class="wrap">
-      <h2 id="wh">Where we work</h2>
+      <h2 id="wh" class="sec">Where We Work</h2>
       <div class="cities">
         <div>London<small>Private clients and auction houses</small></div>
         <div>Gibraltar<small>Artists and collectors</small></div>
@@ -248,8 +271,20 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
     </div>
   </section>
 
-  <section class="invite">
+
+  <section class="press" id="press" aria-labelledby="pr">
     <div class="wrap">
+      <h2 id="pr" class="sec">Press and News</h2>
+      <div class="press-grid">
+        <article><span>Press release</span><h3>Announcements coming soon</h3><p>Press releases about new works, artists and private sales will be published here.</p></article>
+        <article><span>Newsletter</span><h3>The RSAS letter</h3><p>A short, occasional letter on the works we are handling and what the market is telling us. First issue coming soon.</p><a class="btn quiet" href="contact.html?about=Newsletter">Join the list</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="invite" id="invite">
+    <div class="lines invite-lines" aria-hidden="true"><div class="ink base"></div><div class="ink lit"></div></div>
+    <div class="wrap" style="position:relative">
       <h2>Every conversation is private.</h2>
       <p>Whether you are looking for a work or ready to part with one, we will arrange a viewing at a time and place that suits you.</p>
       <a class="btn" href="contact.html">Arrange a private viewing</a>
@@ -280,7 +315,7 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
   function light(x,y){room.style.setProperty('--lx',(x*100)+'%');room.style.setProperty('--ly',(y*100)+'%');
     piece.style.setProperty('--ry',(-8+(x-.5)*-14)+'deg');piece.style.setProperty('--rx',((y-.45)*8)+'deg');var L=document.querySelector('.lines'),r=L.getBoundingClientRect(),q=room.getBoundingClientRect();L.style.setProperty('--mx',((x*q.width-(r.left-q.left))/r.width*100)+'%');L.style.setProperty('--my',((y*q.height-(r.top-q.top))/r.height*100)+'%')}
   if(!still){
-    room.addEventListener('pointermove',function(e){var r=room.getBoundingClientRect();light((e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height)});
+    function at(e){var r=room.getBoundingClientRect();light((e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height)}room.addEventListener('pointermove',at);room.addEventListener('pointerdown',at);
     // on phones there is no cursor: the light drifts slowly on its own
     if(matchMedia('(hover: none)').matches){var t=0;(function drift(){t+=.006;light(.5+Math.sin(t)*.18,.42+Math.sin(t*.7)*.06);requestAnimationFrame(drift)})()}
   }
@@ -288,6 +323,9 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
   var track=document.getElementById('track'),works=[].slice.call(track.querySelectorAll('.frame'));
   function turn(){var c=innerWidth/2;works.forEach(function(f){var r=f.getBoundingClientRect(),d=(r.left+r.width/2-c)/innerWidth;f.style.setProperty('--t',(still?0:Math.max(-35,Math.min(35,d*-60)))+'deg')})}
   track.addEventListener('scroll',turn,{passive:true});
+  document.querySelectorAll('.arrow').forEach(function(b){b.addEventListener('click',function(){track.scrollBy({left:+b.dataset.dir*track.clientWidth*.7,behavior:still?'auto':'smooth'})})});
+  var inv=document.getElementById('invite'),il=inv.querySelector('.lines');function lit(e){var r=il.getBoundingClientRect();il.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');il.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')}
+  if(!still){inv.addEventListener('pointermove',lit);inv.addEventListener('pointerdown',lit)}
   var h=document.querySelectorAll('.hang div');if(!still&&h.length)addEventListener('scroll',function(){var r=h[0].parentNode.getBoundingClientRect(),k=(r.top+r.height/2-innerHeight/2);h[0].style.setProperty('--p1',(k*.12)+'px');h[1].style.setProperty('--p2',(k*-.1)+'px')},{passive:true});addEventListener('resize',turn);turn();
 })();
 </script>
