@@ -26,11 +26,11 @@ img{max-width:100%;display:block}
 .head.solid{background:rgba(0,0,0,.86);backdrop-filter:blur(10px);padding-top:16px;padding-bottom:16px}
 .mark{display:flex;align-items:center;gap:16px;font:600 26px/1 var(--serif);letter-spacing:.3em;text-decoration:none}.mark .dot{font-style:normal;color:#8c8c8c;letter-spacing:0;margin-left:-.32em}
 .mark b{font-weight:inherit;white-space:nowrap}
-.mark span{font:300 13px/1.3 var(--sans);letter-spacing:.02em;color:#bdbdbd;border-left:1px solid #444;padding-left:16px;white-space:nowrap}
+.mark span{font:400 15px/1.3 var(--sans);letter-spacing:.03em;color:#f2f2f2;border-left:1px solid #666;padding-left:16px;white-space:nowrap}
 .menu{display:flex;gap:clamp(18px,2.6vw,40px);font-size:14px;letter-spacing:.04em}
 .menu a{text-decoration:none;color:#cfcfcf;padding:6px 0;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
 .menu a:hover{color:#fff;border-color:#fff}
-.burger{display:none;background:none;border:1px solid #444;color:#fff;font:inherit;font-size:14px;padding:9px 16px;border-radius:40px}
+.burger{display:none;background:none;border:1.5px solid #fff;color:#fff;font:600 14px/1 var(--sans);letter-spacing:.06em;padding:13px 18px;border-radius:4px}
 
 /* HERO: a dark private room; one light finds the work */
 .room{position:relative;height:100svh;min-height:620px;overflow:hidden;perspective:1400px;display:grid;place-items:center}
@@ -72,7 +72,8 @@ img{max-width:100%;display:block}
 .title h1{font:300 clamp(54px,7.4vw,116px)/.98 var(--serif);letter-spacing:-.005em;margin:0}
 .title .full{display:block;margin:26px 0 34px;max-width:24em;font-size:16px;color:#bdbdbd;opacity:0;animation:on 1.6s 2.2s var(--ease) forwards}
 .title .side{text-align:left;display:flex;gap:14px;flex-wrap:wrap}
-.btn.quiet{border-color:rgba(255,255,255,.28);background:transparent}
+.btn.quiet{background:transparent;color:#fff;border:1.5px solid #fff;box-shadow:none}
+.btn.quiet:hover,.btn.quiet:focus-visible{background:#fff;color:#000}
 /* sections */
 .wrap{padding:0 clamp(20px,4vw,56px);max-width:1440px;margin:0 auto}
 section{position:relative}
@@ -132,8 +133,8 @@ section{position:relative}
 .invite{padding:clamp(120px,16vw,220px) 0;text-align:center;background:radial-gradient(ellipse 50% 60% at 50% 40%,#17160f 0%,#000 70%)}
 .invite h2{margin:0 auto;max-width:12em;font:300 clamp(40px,5.4vw,80px)/1.05 var(--serif)}
 .invite p{margin:22px auto 40px;color:#a8a8a8;max-width:30em}
-.btn{display:inline-block;padding:17px 38px;border:1px solid rgba(255,255,255,.7);color:#fff;background:rgba(255,255,255,.04);text-decoration:none;font:italic 400 19px/1 var(--serif);letter-spacing:.02em;border-radius:60px;backdrop-filter:blur(6px);transition:background .5s,color .5s,border-color .5s}
-.btn:hover,.btn:focus-visible{background:#fff;color:#000;border-color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 40px;border:1.5px solid #fff;color:#000;background:#fff;text-decoration:none;font:600 15px/1 var(--sans);letter-spacing:.06em;border-radius:4px;box-shadow:0 10px 30px -10px rgba(255,255,255,.25);transition:background .35s,color .35s,box-shadow .35s}
+.btn:hover,.btn:focus-visible{background:transparent;color:#fff;box-shadow:none}
 .mail{display:block;margin-top:22px;font-size:15px;color:#bdbdbd}
 
 footer{border-top:1px solid var(--hair);padding:48px 0 40px;font-size:13px;color:#7a7a7a}
@@ -146,7 +147,7 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
   .stmt{grid-template-columns:1fr}
   .offer summary{flex-wrap:wrap}.offer summary em{order:3;width:100%}.mark .dot{font-style:normal;color:#8c8c8c;letter-spacing:0;margin-left:-.32em}
 .mark b{font-weight:inherit;white-space:nowrap}
-.mark{flex-direction:column;align-items:flex-start;gap:4px}.mark span{border:0;padding:0;font-size:11px;letter-spacing:.04em}
+.mark{flex-direction:column;align-items:flex-start;gap:4px}.mark span{border:0;padding:0;font-size:12.5px;letter-spacing:.02em;color:#f2f2f2}
   .menu{display:none;position:fixed;inset:0;background:#000;flex-direction:column;justify-content:center;align-items:center;gap:28px;font:300 32px/1 var(--serif)}
   .head.open .menu{display:flex}
   .burger{display:block;position:relative;z-index:2}
@@ -169,7 +170,7 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="head" id="head">
-  <a class="mark" href="index.html" aria-label="RSAS, Research Sourced Art Solutions, home"><b>RSAS<i class="dot">.</i></b><span>Research Sourced Art Solutions</span></a>
+  <a class="mark" href="index.html" aria-label="RSAS, Research Sourced Art Solutions Ltd, home"><b>RSAS<i class="dot">.</i></b><span>Research Sourced Art Solutions Ltd</span></a>
   <button class="burger" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   <nav class="menu" id="menu" aria-label="Main">
     <a href="current-works.html">Current works</a>
@@ -260,7 +261,7 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
 <footer>
   <div class="wrap">
     <div class="row">
-      <span>© 2026 RSAS Ltd</span>
+      <span>© 2026 Research Sourced Art Solutions Ltd (RSAS)</span>
       <nav aria-label="Legal">
         <a href="fees-and-engagement.html">Fees</a><a href="faq.html">FAQ</a><a href="conditions-of-sale.html">Conditions of sale</a><a href="anti-money-laundering.html">Anti-money laundering</a><a href="privacy-policy.html">Privacy</a><a href="cookie-policy.html">Cookies</a><a href="terms-of-use.html">Terms</a><a href="complaints.html">Complaints</a>
       </nav>
