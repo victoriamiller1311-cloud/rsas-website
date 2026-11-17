@@ -89,3 +89,4 @@
   function openHash(){var id=location.hash.slice(1);if(!id)return;var d=document.getElementById(id);if(d&&d.tagName==='DETAILS'){d.open=true;setTimeout(function(){d.scrollIntoView({block:'start'})},50)}}
   openHash();addEventListener('hashchange',openHash);
 })();
+(function(){if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add(e.target.classList.contains('art-band')?'in':'lu-on');io.unobserve(e.target)}})},{threshold:.4});document.querySelectorAll('.art-band,.do-grid a').forEach(function(e){io.observe(e)})})();
