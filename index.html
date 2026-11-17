@@ -22,7 +22,7 @@
 
 <main id="main"><!--home2-->
   <section class="hero2" id="hero2" aria-label="Research Sourced Art Solutions">
-    <div class="hs"><figure class="hs-s on" data-cap="David Teniers the Younger, Archduke Leopold Wilhelm in his Gallery at Brussels"><picture><source type="image/webp" srcset="assets/insights/insight-17.webp"><img src="assets/insights/insight-17.jpg" alt="" fetchpriority="high" decoding="async"></picture><picture><source type="image/webp" srcset="assets/insights/insight-17.webp"><img class=pop src="assets/insights/insight-17.jpg" alt="" fetchpriority="high" decoding="async"></picture></figure><figure class="hs-s" data-cap="Willem van Haecht, The Gallery of Cornelis van der Geest"><picture><source type="image/webp" srcset="assets/insights/insight-07.webp"><img src="assets/insights/insight-07.jpg" alt="" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="assets/insights/insight-07.webp"><img class=pop src="assets/insights/insight-07.jpg" alt="" loading="lazy" decoding="async"></picture></figure><figure class="hs-s" data-cap="The Salon of the Louvre"><picture><source type="image/webp" srcset="assets/insights/insight-03.webp"><img src="assets/insights/insight-03.jpg" alt="" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="assets/insights/insight-03.webp"><img class=pop src="assets/insights/insight-03.jpg" alt="" loading="lazy" decoding="async"></picture></figure><figure class="hs-s" data-cap="Holly Mingo with her paintings"><picture><source type="image/webp" srcset="assets/artists/holly-mingo/portrait.webp"><img src="assets/artists/holly-mingo/portrait.jpg" alt="" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="assets/artists/holly-mingo/portrait.webp"><img class=pop src="assets/artists/holly-mingo/portrait.jpg" alt="" loading="lazy" decoding="async"></picture></figure></div><div class="hs-shade"></div>
+    <div class="hs"><figure class="hs-s on" data-cap="David Teniers the Younger, Archduke Leopold Wilhelm in his Gallery at Brussels"><picture><source type="image/webp" srcset="assets/insights/insight-17.webp"><img src="assets/insights/insight-17.jpg" alt="" fetchpriority="high" decoding="async"></picture><picture><source type="image/webp" srcset="assets/insights/insight-17.webp"><img class=pop src="assets/insights/insight-17.jpg" alt="" fetchpriority="high" decoding="async"></picture></figure></div><div class="hs-shade"></div>
     <div class="hs-in wrap">
       <p class="hs-eye">Research Sourced Art Solutions</p>
       <h1 class="hs-mark">RSAS<i>.</i></h1>
@@ -30,7 +30,7 @@
       <p class="hs-sub">Private sales and advice on fine and contemporary art. London, Gibraltar and Sotogrande.</p>
       <div class="hs-btns"><a class="btn" href="contact.html">Arrange a private viewing</a><a class="hs-link" href="current-works.html">View current works</a></div>
     </div>
-    <div class="hs-foot wrap"><div class="hs-dots"><button type="button" aria-label="Photo 1" class=on></button><button type="button" aria-label="Photo 2"></button><button type="button" aria-label="Photo 3"></button><button type="button" aria-label="Photo 4"></button></div><p class="hs-cap">David Teniers the Younger, Archduke Leopold Wilhelm in his Gallery at Brussels</p></div>
+    <div class="hs-foot wrap"><div class="hs-dots"><button type="button" aria-label="Photo 1" class=on></button></div><p class="hs-cap">David Teniers the Younger, Archduke Leopold Wilhelm in his Gallery at Brussels</p></div>
   </section>
 
   <section class="room chag" id="room" aria-labelledby="ch">
@@ -130,7 +130,7 @@
   // full-screen photos that change on their own
   var hs=[].slice.call(document.querySelectorAll('.hs-s')),dots=[].slice.call(document.querySelectorAll('.hs-dots button')),cap=document.querySelector('.hs-cap'),i=0,t;
   function show(k){hs[i].classList.remove('on');dots[i].classList.remove('on');i=(k+hs.length)%hs.length;hs[i].querySelectorAll('img').forEach(function(m){if(m.loading==='lazy')m.loading='eager'});hs[i].classList.add('on');dots[i].classList.add('on');cap.textContent=hs[i].dataset.cap}
-  function auto(){clearInterval(t);if(!still)t=setInterval(function(){if(!document.hidden)show(i+1)},6000)}
+  function auto(){clearInterval(t);if(hs.length<2)return;if(!still)t=setInterval(function(){if(!document.hidden)show(i+1)},6000)}
   dots.forEach(function(d,k){d.addEventListener('click',function(){show(k);auto()})});auto();
   // spotlight: paintings burst into colour where the light passes
   var hero=document.getElementById('hero2'),hand=0,tt=0;

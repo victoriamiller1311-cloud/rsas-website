@@ -407,3 +407,4 @@ main>section.band:not(:nth-of-type(odd)) p.lead-in{color:#fff!important}
 .hs-shade{background:linear-gradient(90deg,rgba(6,5,3,.75) 0%,rgba(6,5,3,.25) 45%,rgba(6,5,3,0) 70%),linear-gradient(180deg,rgba(6,5,3,.45) 0%,rgba(6,5,3,0) 25%,rgba(6,5,3,0) 60%,rgba(6,5,3,.85) 100%)!important}
 @media (max-width:900px){.hs-s img.pop{-webkit-mask-size:auto;--sr:34vmax}.hs-shade{background:linear-gradient(180deg,rgba(6,5,3,.4) 0%,rgba(6,5,3,0) 22%,rgba(6,5,3,.35) 48%,rgba(6,5,3,.9) 100%)!important}}
 @media (prefers-reduced-motion:reduce){.hs-s img.pop{-webkit-mask:none;mask:none;opacity:.6}}
+.hs-dots:has(button:only-child){display:none}
