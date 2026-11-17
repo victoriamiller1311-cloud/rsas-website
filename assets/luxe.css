@@ -146,3 +146,43 @@ main>section.band:nth-of-type(odd) .article blockquote{border-color:var(--gold)!
 .ph-lines .ink.base{opacity:.09}
 .ph-lines .ink.lit{opacity:.75;-webkit-mask:radial-gradient(circle 22vmax at var(--mx,60%) var(--my,40%),#000 0%,rgba(0,0,0,.45) 45%,transparent 75%);mask:radial-gradient(circle 22vmax at var(--mx,60%) var(--my,40%),#000 0%,rgba(0,0,0,.45) 45%,transparent 75%)}
 .ph-art{width:min(28vw,380px)}
+
+/* ===== 17 Nov 2026 (3): cream on every page, Contact moustache, finishing touches ===== */
+/* cream sections on the home page too */
+.offer,.ihome,.where{background:#f4f0e8!important;color:#141210;background-image:radial-gradient(ellipse 60% 80% at 100% 0%,rgba(201,164,92,.12),transparent 60%)!important;padding-top:clamp(90px,10vw,150px)!important;padding-bottom:clamp(90px,10vw,150px)!important}
+.offer h2.sec,.ihome h2.sec,.where h2.sec{color:#0d0b08}
+.offer summary{color:#141210!important}.offer details[open] summary{color:#6f5422!important}
+.offer summary em{color:#8a6d36!important}.offer details p{color:#3b362e!important}
+.offer details a{color:#0d0b08!important;border-color:var(--gold)!important;font-weight:600}
+.offer details{border-top-color:rgba(138,109,54,.28)!important}
+.where .cities div{color:#0d0b08}.where .cities small{color:#5d564b!important}.where .cities div{border-top-color:var(--gold)}
+.ihome p{color:#3b362e!important}.ihome .icard{color:#0d0b08}.ihome .icard h3{color:#0d0b08}.ihome .icard:hover h3{color:#6f5422}
+.ihome .icard .meta{color:#8a6d36!important}.ihome .icard .im{background:#ebe5d8}.ihome .icard .go{color:#0d0b08}
+.ihome .btn.quiet{color:#0d0b08!important;border-color:#0d0b08!important}.ihome .btn.quiet:hover{background:var(--gold)!important;border-color:var(--gold)!important}
+
+/* Contact: a modern master's moustache, drawn in light */
+.page-hero.ph-mo{min-height:min(88vh,840px)}
+.ph-moustache{position:absolute;right:clamp(-40px,2vw,60px);top:50%;width:min(56vw,820px);aspect-ratio:800/300;transform:translateY(-50%) perspective(1200px) rotateY(var(--ry,-8deg)) rotateX(var(--rx,4deg));transition:transform 1.2s cubic-bezier(.2,.7,.1,1);z-index:0;pointer-events:none}
+.ph-moustache .mo{position:absolute;inset:0}
+.ph-moustache svg{width:100%;height:100%;display:block;stroke:#e9d6a8}
+.ph-moustache .base{opacity:.32}
+.ph-moustache .base path{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3.6s .3s cubic-bezier(.4,0,.2,1) forwards}
+.ph-moustache .lit{filter:drop-shadow(0 0 8px rgba(230,203,143,.85)) drop-shadow(0 0 22px rgba(201,164,92,.5));-webkit-mask:radial-gradient(circle 20vmax at var(--mx,50%) var(--my,50%),#000 0%,rgba(0,0,0,.4) 50%,transparent 78%);mask:radial-gradient(circle 20vmax at var(--mx,50%) var(--my,50%),#000 0%,rgba(0,0,0,.4) 50%,transparent 78%);opacity:0;animation:on 2s 2.4s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (max-width:900px){.ph-moustache{position:relative;right:auto;top:auto;width:96%;margin:40px auto 0;transform:perspective(1000px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg))}}
+@media (prefers-reduced-motion:reduce){.ph-moustache .base path{animation:none;stroke-dashoffset:0}.ph-moustache .lit{opacity:1;animation:none}}
+
+/* tidier: one rhythm for every section, a gold rule that draws in under each heading */
+section.band{padding:clamp(84px,9vw,140px) 0!important}
+main>section.band>.wrap>h2,main>section.band .cols>div>h2,main>section.band>.wrap>.eyebrow+h2{position:relative}
+main>section.band>.wrap>h2::after,main>section.band .cols>div>h2::after{content:"";display:block;height:2px;width:0;margin-top:20px;background:var(--gold-grad);transition:width 1.4s cubic-bezier(.2,.7,.1,1) .2s}
+main>section.band.in>.wrap>h2::after,main>section.band.in .cols>div>h2::after,main>section.band:not(.reveal)>.wrap>h2::after{width:64px}
+.body,.article{max-width:780px}
+.lede{color:#e9e4da}
+
+/* futuristic finishing: a gold reading line at the top, and a soft gold ring that follows the pointer */
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(var(--p,0));background:var(--gold-grad);z-index:100;pointer-events:none}
+.cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid rgba(230,203,143,.75);border-radius:50%;pointer-events:none;z-index:101;transition:width .35s,height .35s,margin .35s,background .35s,border-color .35s;mix-blend-mode:difference}
+.cur.big{width:70px;height:70px;margin:-35px 0 0 -35px;background:rgba(230,203,143,.12);border-color:var(--gold-l)}
+@media (hover:none),(prefers-reduced-motion:reduce){.cur{display:none}}
+.head.solid{background:rgba(0,0,0,.95)!important}.ph-moustache .base{opacity:.5}
