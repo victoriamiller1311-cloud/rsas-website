@@ -59,14 +59,9 @@
     T.forEach(function(w){w.classList.add('rise');io.observe(w)})}
 })();
 
-/* gold reading line and pointer ring */
+/* gold reading line */
 (function(){
   var p=document.createElement('div');p.className='progress';p.setAttribute('aria-hidden','true');document.body.appendChild(p);
   function sp(){var h=document.documentElement.scrollHeight-innerHeight;p.style.setProperty('--p',h>0?Math.min(1,scrollY/h):0)}
   addEventListener('scroll',sp,{passive:true});sp();
-  if(matchMedia('(hover: none)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var c=document.createElement('div');c.className='cur';c.setAttribute('aria-hidden','true');document.body.appendChild(c);
-  var x=-100,y=-100,tx=-100,ty=-100;
-  addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;var t=e.target.closest&&e.target.closest('a,button,summary,.tilt,label');c.classList.toggle('big',!!t)},{passive:true});
-  (function f(){x+=(tx-x)*.2;y+=(ty-y)*.2;c.style.transform='translate('+x+'px,'+y+'px)';requestAnimationFrame(f)})();
 })();

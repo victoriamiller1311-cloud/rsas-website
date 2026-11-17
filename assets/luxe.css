@@ -239,3 +239,9 @@ body.doc main>section.band h2::after{background:var(--gold)!important}
 body.doc .body,body.doc .article{max-width:800px}
 body.doc main>section.band input,body.doc main>section.band textarea,body.doc main>section.band select{background:#fff!important;color:#000!important;border-color:#0d0b08!important}
 @media (max-width:900px){.ph-pop{width:100%!important}}
+/* no pointer ring */
+.cur{display:none!important}
+/* home, computer: keep the framed Moses clear of the menu */
+@media (min-width:821px){
+  .museum{top:calc(50% + 58px)!important;width:min(26vw,340px,calc((100svh - 330px) * .6))!important}
+}
