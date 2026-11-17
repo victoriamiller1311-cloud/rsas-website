@@ -271,3 +271,24 @@ body.doc main>section.band input,body.doc main>section.band textarea,body.doc ma
 p.lead-in{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(28px,2.8vw,40px)!important;line-height:1.25!important;max-width:24em;margin-bottom:1.1em!important}
 main>section.band:not(:nth-of-type(odd)) p.lead-in{color:#fff!important}
 .cw-tabs .wrap{grid-template-columns:repeat(auto-fit,minmax(0,1fr))!important}
+
+/* ===== phone menu: a neat box that opens wherever you are on the page ===== */
+@media (max-width:899px){
+  /* home: the blurred header was trapping the menu once you had scrolled */
+  .head.open{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(0,0,0,.95)!important}
+  .head .menu{position:fixed!important;inset:auto!important;top:92px!important;right:16px!important;left:16px!important;max-width:380px;margin-left:auto;
+    display:none;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:0!important;padding:14px 26px 22px!important;
+    background:#0b0a08!important;border:1px solid rgba(201,164,92,.55);border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.75);font:400 26px/1.1 "Cormorant Garamond",Georgia,serif!important;max-height:calc(100svh - 120px);overflow-y:auto;z-index:50}
+  .head.open .menu{display:flex!important}
+  .head .menu a{padding:15px 2px!important;border-bottom:1px solid rgba(201,164,92,.18)!important;text-align:left;color:#fff}
+  .head .menu a:last-child{border:1.5px solid var(--gold)!important;margin-top:18px;text-align:center;padding:14px!important;font:600 16px/1 var(--sans,'Manrope',sans-serif)!important;letter-spacing:.04em;background:var(--gold-grad);color:#0b0904!important}
+  .head .menu a[aria-current=page]{color:var(--gold-l)}
+  /* inner pages: same box instead of a full black screen */
+  .site-head.open{position:sticky!important;inset:auto!important;top:0!important;overflow:visible!important;background:#000!important}
+  .site-head .nav{position:fixed!important;top:84px;right:16px;left:16px;max-width:380px;margin-left:auto;display:none!important;flex-direction:column;align-items:stretch;gap:0!important;
+    padding:14px 26px 22px!important;background:#0b0a08!important;border:1px solid rgba(201,164,92,.55);border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.75);max-height:calc(100svh - 110px);overflow-y:auto;z-index:70}
+  .site-head.open .nav{display:flex!important}
+  .site-head .nav a{font:400 26px/1.1 "Cormorant Garamond",Georgia,serif!important;padding:15px 2px!important;border-bottom:1px solid rgba(201,164,92,.18)!important;color:#fff;letter-spacing:0;text-transform:none}
+  .site-head .nav a[aria-current=page]{color:var(--gold-l)}
+  .site-head .nav .nav-cta{margin-top:18px;text-align:center;font:600 16px/1 var(--sans,'Manrope',sans-serif)!important;padding:16px!important;border-bottom:1.5px solid var(--gold)!important}
+}
