@@ -393,3 +393,6 @@ main>section.band:not(:nth-of-type(odd)) p.lead-in{color:#fff!important}
 .creds span{display:block;margin-top:3px;font-size:14px;color:#6b6457;letter-spacing:.02em}
 #founder .lead-in{font-style:italic;color:#6e5a33}
 @media (max-width:600px){.creds{grid-template-columns:1fr}}
+/* hero photos: shaded and softened, gallery mood */
+.hs-s img{filter:saturate(.55) brightness(.78) contrast(1.05)}
+.hs-shade{background:linear-gradient(180deg,rgba(8,6,4,.55) 0%,rgba(8,6,4,.35) 35%,rgba(8,6,4,.55) 60%,rgba(8,6,4,.92) 100%)!important}
