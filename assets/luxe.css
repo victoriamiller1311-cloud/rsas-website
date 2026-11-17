@@ -396,3 +396,14 @@ main>section.band:not(:nth-of-type(odd)) p.lead-in{color:#fff!important}
 /* hero photos: shaded and softened, gallery mood */
 .hs-s img{filter:saturate(.55) brightness(.78) contrast(1.05)}
 .hs-shade{background:linear-gradient(180deg,rgba(8,6,4,.55) 0%,rgba(8,6,4,.35) 35%,rgba(8,6,4,.55) 60%,rgba(8,6,4,.92) 100%)!important}
+/* hero spotlight: dark, near black-and-white base; colour where the light falls */
+.hs-s{transform:scale(1.03);transition:opacity 1.8s ease,transform 11s linear}
+.hs-s.on{transform:scale(1.12)}
+.hs-s img,.hs-s.on img{transform:none!important;transition:none!important}
+.hs-s img{filter:grayscale(.9) sepia(.15) brightness(.5) contrast(1.1)}
+.hs-s img.pop{position:absolute;inset:0;filter:saturate(1.25) brightness(1.08) contrast(1.05);
+  -webkit-mask:radial-gradient(circle var(--sr,24vmax) at var(--sx,62%) var(--sy,38%),#000 0,#000 30%,transparent 100%);
+          mask:radial-gradient(circle var(--sr,24vmax) at var(--sx,62%) var(--sy,38%),#000 0,#000 30%,transparent 100%)}
+.hs-shade{background:linear-gradient(90deg,rgba(6,5,3,.75) 0%,rgba(6,5,3,.25) 45%,rgba(6,5,3,0) 70%),linear-gradient(180deg,rgba(6,5,3,.45) 0%,rgba(6,5,3,0) 25%,rgba(6,5,3,0) 60%,rgba(6,5,3,.85) 100%)!important}
+@media (max-width:900px){.hs-s img.pop{-webkit-mask-size:auto;--sr:34vmax}.hs-shade{background:linear-gradient(180deg,rgba(6,5,3,.4) 0%,rgba(6,5,3,0) 22%,rgba(6,5,3,.35) 48%,rgba(6,5,3,.9) 100%)!important}}
+@media (prefers-reduced-motion:reduce){.hs-s img.pop{-webkit-mask:none;mask:none;opacity:.6}}
