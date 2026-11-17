@@ -38,7 +38,7 @@
   // forms open the visitor's own email app; nothing is stored on this website
   document.querySelectorAll('form[data-mail]').forEach(function(f){
     var q=new URLSearchParams(location.search).get('about');if(q&&f.elements.work)f.elements.work.value=q;
-    f.addEventListener('submit',function(e){e.preventDefault();var to=f.getAttribute('data-mail'),L=[],fd=new FormData(f);
+    f.addEventListener('submit',function(e){e.preventDefault();var ep=f.getAttribute('data-endpoint'),m0=f.querySelector('.form-msg');if(ep){var btn=f.querySelector('[type=submit]');if(btn)btn.disabled=true;if(m0)m0.textContent='Sending...';fetch(ep,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;f.reset();if(m0)m0.textContent='Thank you. Your enquiry has been sent and we will reply within one working day.'}).catch(function(){if(m0)m0.textContent='Sorry, your enquiry could not be sent. Please email '+f.getAttribute('data-mail')+'.'}).finally(function(){if(btn)btn.disabled=false});return}var to=f.getAttribute('data-mail'),L=[],fd=new FormData(f);
       fd.forEach(function(v,k){if(v&&k!=='privacy')L.push(k.charAt(0).toUpperCase()+k.slice(1).replace(/_/g,' ')+': '+v)});
       location.href='mailto:'+to+'?subject='+encodeURIComponent(f.getAttribute('data-subject')||'Website enquiry')+'&body='+encodeURIComponent(L.join('\n'));
       var m=f.querySelector('.form-msg');if(m)m.textContent='Your email app should now open with your message ready to send. If it does not, please write to '+to+'.'})});
