@@ -348,3 +348,4 @@ section.band,section.band.light,section.band.dark2,.page-hero,.site-head,.site-f
 @media (max-width:980px){.a-top,.cols2{grid-template-columns:1fr}.aw-grid{grid-template-columns:1fr;gap:64px}.a-tiles{grid-template-columns:1fr 1fr;gap:36px 20px}.a-tile h3{font-size:20px}}
 @media (max-width:560px){.a-tiles{grid-template-columns:1fr}}
 .article h2{font-size:16px;letter-spacing:.14em;color:#fff}
+.a-tile img{height:auto!important}
