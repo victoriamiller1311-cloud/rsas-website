@@ -205,3 +205,37 @@ main>section.band.in>.wrap>h2::after,main>section.band.in .cols>div>h2::after,ma
 }
 .ph-pop .colour{-webkit-mask:radial-gradient(circle 24vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.8) 45%,transparent 75%);mask:radial-gradient(circle 24vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.8) 45%,transparent 75%);opacity:1}
 .ph-pop .lit{opacity:.45;-webkit-mask:radial-gradient(circle 34vmax at var(--mx,60%) var(--my,45%),transparent 0%,transparent 22%,#000 45%,rgba(0,0,0,.3) 70%,transparent 90%);mask:radial-gradient(circle 34vmax at var(--mx,60%) var(--my,45%),transparent 0%,transparent 22%,#000 45%,rgba(0,0,0,.3) 70%,transparent 90%)}
+
+/* ===== 17 Nov 2026 (4) ===== */
+/* main pages: zoomed detail, drawn in light, colour where you touch */
+.ph-pop .base{background-image:var(--pl)!important}
+.ph-pop .colour{background-image:var(--pc)!important}
+.ph-pop .lit{background-image:var(--pl)!important}
+.ph-pop{width:min(62vw,980px)}
+.page-hero.ph-popart .wrap>*{max-width:min(620px,48%)}
+@media (max-width:900px){.page-hero.ph-popart .wrap>*{max-width:none}}
+
+/* document pages: light, calm and professional, no artwork */
+body.doc{background:#f6f3ed}
+body.doc .glow{display:none}
+body.doc::before{display:none}
+body.doc .page-hero{background:#f6f3ed!important;min-height:0!important;padding:clamp(70px,8vw,120px) 0 clamp(40px,5vw,70px)!important;border:0!important}
+body.doc .page-hero h1{color:#0d0b08!important;font-size:clamp(44px,5.4vw,76px)}
+body.doc .page-hero .lede,body.doc .page-hero p{color:#4a443a!important}
+body.doc .page-hero .crumb,body.doc .page-hero .crumb a{color:#8a6d36!important}
+body.doc main>section.band,body.doc main>section.band:nth-of-type(odd){background:#fff!important;background-image:none!important;color:#1d1a15!important;padding:clamp(56px,6vw,96px) 0!important}
+body.doc main>section.band:nth-of-type(even){background:#f6f3ed!important}
+body.doc main>section.band :is(h1,h2,h3,h4,strong,b,dd,summary,th){color:#0d0b08!important}
+body.doc main>section.band :is(p,li,td,dt,.aside,.lede,span:not(.btn),figcaption){color:#3b362e!important}
+body.doc main>section.band :is(.eyebrow,.crumb a){color:#8a6d36!important}
+body.doc main>section.band a:not(.btn){color:#6f5422!important;text-decoration-color:var(--gold)}
+body.doc main>section.band .btn{background:#0d0b08!important;color:#fff!important;border-color:#0d0b08!important;box-shadow:none!important}
+body.doc main>section.band .btn.ghost{background:transparent!important;color:#0d0b08!important}
+body.doc main>section.band .btn:hover{background:var(--gold)!important;border-color:var(--gold)!important;color:#000!important}
+body.doc main>section.band :is(.table-wrap,table,th,td,details,details.faq,.card,dl,dl div){border-color:#e3dccd!important;background:transparent!important}
+body.doc main>section.band th{background:#f6f3ed!important}
+body.doc main>section.band .body ul li::before{background:var(--gold)!important}
+body.doc main>section.band h2::after{background:var(--gold)!important}
+body.doc .body,body.doc .article{max-width:800px}
+body.doc main>section.band input,body.doc main>section.band textarea,body.doc main>section.band select{background:#fff!important;color:#000!important;border-color:#0d0b08!important}
+@media (max-width:900px){.ph-pop{width:100%!important}}

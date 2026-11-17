@@ -11,29 +11,33 @@
     x+=(tx-x)*.08;y+=(ty-y)*.08;g.style.setProperty('--gx',x+'%');g.style.setProperty('--gy',y+'%');requestAnimationFrame(loop)})();
 })();
 
-/* ---------- inner pages: a Jacobo Azagury painting in 3D, with its own line drawing lit by your finger or mouse ---------- */
+/* ---------- main pages: a zoomed-in detail of a colourful work, drawn in light; touch brings it to colour ---------- */
 (function(){
   var hero=document.querySelector('.page-hero');
-  if(!hero||document.querySelector('.a-hero2')||/insight-/.test(location.pathname))return;
-  var A=[['az-portrait','street-portrait-green-jacket','Street Portrait in a Green Jacket'],['az-market','tangier-market','Tangier Market with Minaret'],
-         ['az-musicians','tavern-musicians','Tavern Musicians, Funchal'],['az-street','stepped-street','Stepped Street with Figures'],
-         ['az-tree','market-under-tree','Market under a Great Tree'],['az-houses','gibraltar-houses','Old Houses with a Palm, Gibraltar']];
-  var p=location.pathname.split('/').pop()||'index',h=0;
-  if(/contact\.html$/.test(location.pathname)){var M=document.createElement('div');M.className='ph-pop';M.setAttribute('aria-hidden','true');M.innerHTML='<div class="pl base"></div><div class="pl colour"></div><div class="pl lit"></div>';hero.classList.add('ph','ph-popart');hero.insertBefore(M,hero.firstChild);var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML='Detail, after a work by <a href="artist-rich-simmons.html">Rich Simmons</a>. Touch to bring it to colour.';hero.querySelector('.wrap').appendChild(cap);var mv=function(x,y){var r=M.getBoundingClientRect();M.style.setProperty('--mx',((x-r.left)/r.width*100)+'%');M.style.setProperty('--my',((y-r.top)/r.height*100)+'%');M.style.setProperty('--ry',(((x/innerWidth)-.5)*-10)+'deg');M.style.setProperty('--rx',(((y/innerHeight)-.5)*8)+'deg')};hero.addEventListener('pointermove',function(e){mv(e.clientX,e.clientY)});hero.addEventListener('pointerdown',function(e){mv(e.clientX,e.clientY)});if(matchMedia('(hover: none)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var t2=0,last=0;hero.addEventListener('touchstart',function(){last=Date.now()},{passive:true});hero.addEventListener('touchmove',function(e){last=Date.now();mv(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});(function d2(){t2+=.005;if(Date.now()-last>3000){var r=M.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)mv(r.left+r.width*(.5+Math.sin(t2)*.32),r.top+r.height*(.45+Math.sin(t2*.8)*.3))}requestAnimationFrame(d2)})()}return}for(var i=0;i<p.length;i++)h=(h*31+p.charCodeAt(i))>>>0;var a=A[h%A.length];
-  hero.classList.add('ph');
-  var L=document.createElement('div');L.className='ph-lines';L.setAttribute('aria-hidden','true');
-  L.innerHTML='<div class="ink base"></div><div class="ink lit"></div>';L.style.setProperty('--ink','url(lines/'+a[0]+'.png)');
-  var F=document.createElement('figure');F.className='ph-art';
-  F.innerHTML='<a href="artist-jacobo-azagury.html#works" class="ph-tilt"><img class="framed" src="assets/artists/jacobo-azagury/'+a[1]+'-800.jpg" alt="Jacobo Azagury, '+a[2]+', private family collection"></a><figcaption>Jacobo Azagury, <i>'+a[2]+'</i>. Private family collection.</figcaption>';
-  hero.insertBefore(L,hero.firstChild);hero.appendChild(F);
-  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;if(still)return;
-  var tl=F.querySelector('.ph-tilt');
-  function at(x,y){var r=hero.getBoundingClientRect(),lr=L.getBoundingClientRect(),fx=(x-r.left)/r.width,fy=(y-r.top)/r.height;
-    L.style.setProperty('--mx',((x-lr.left)/lr.width*100)+'%');L.style.setProperty('--my',((y-lr.top)/lr.height*100)+'%');
-    tl.style.setProperty('--ry',((fx-.6)*-22)+'deg');tl.style.setProperty('--rx',((fy-.5)*12)+'deg');tl.style.setProperty('--sx',(fx*100)+'%');tl.style.setProperty('--sy',(fy*100)+'%')}
-  hero.addEventListener('pointermove',function(e){at(e.clientX,e.clientY)});hero.addEventListener('pointerdown',function(e){at(e.clientX,e.clientY)});
-  if(matchMedia('(hover: none)').matches){var t=0,last=0;hero.addEventListener('touchstart',function(){last=Date.now()},{passive:true});
-    (function drift(){t+=.006;if(Date.now()-last>3000){var r=hero.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)at(r.left+r.width*(.5+Math.sin(t)*.3),r.top+r.height*(.45+Math.sin(t*.7)*.25))}requestAnimationFrame(drift)})()}
+  if(!hero||document.body.classList.contains('doc')||document.querySelector('.a-hero2')||/insight-/.test(location.pathname))return;
+  var p=(location.pathname.split('/').pop()||'').replace('.html','');
+  var MAP={'research':['research','Rich Simmons','artist-rich-simmons.html'],'buying':['buying','Rich Simmons','artist-rich-simmons.html'],
+    'selling':['selling','Philippe de Kraan','artist-philippe-de-kraan.html'],'current-works':['current-works','Rich Simmons','artist-rich-simmons.html'],
+    'artists-we-follow':['artists','Alef','artist-alef.html'],'corporate-and-hospitality':['corporate','Philippe de Kraan','artist-philippe-de-kraan.html'],
+    'insights':['insights','Holly Mingo','artist-holly-mingo.html'],'about':['about','Rich Simmons','artist-rich-simmons.html'],
+    'contact':['contact','Rich Simmons','artist-rich-simmons.html'],'why-contemporary-art':['why','Holly Mingo','artist-holly-mingo.html'],
+    'how-we-select-emerging-artists':['select','Alef','artist-alef.html'],'collecting-emerging-art':['collecting','Alef','artist-alef.html'],
+    'testimonials':['testimonials','Rich Simmons','artist-rich-simmons.html']};
+  var m=MAP[p];if(!m)return;
+  var M=document.createElement('div');M.className='ph-pop';M.setAttribute('aria-hidden','true');
+  M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg)');
+  M.innerHTML='<div class="pl base"></div><div class="pl colour"></div><div class="pl lit"></div>';
+  hero.classList.add('ph','ph-popart');hero.insertBefore(M,hero.firstChild);
+  var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML='Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>. Touch to bring it to colour.';
+  var w=hero.querySelector('.wrap');if(w)w.appendChild(cap);
+  var mv=function(x,y){var r=M.getBoundingClientRect();M.style.setProperty('--mx',((x-r.left)/r.width*100)+'%');M.style.setProperty('--my',((y-r.top)/r.height*100)+'%');M.style.setProperty('--ry',(((x/innerWidth)-.5)*-10)+'deg');M.style.setProperty('--rx',(((y/innerHeight)-.5)*8)+'deg')};
+  hero.addEventListener('pointermove',function(e){mv(e.clientX,e.clientY)});hero.addEventListener('pointerdown',function(e){mv(e.clientX,e.clientY)});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var t2=0,last=0,touch=matchMedia('(hover: none)').matches;
+  hero.addEventListener('touchstart',function(){last=Date.now()},{passive:true});
+  hero.addEventListener('touchmove',function(e){last=Date.now();mv(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+  hero.addEventListener('pointerenter',function(){last=Date.now()+1e9});hero.addEventListener('pointerleave',function(){last=Date.now()});
+  (function d2(){t2+=.005;if(Date.now()-last>3000){var r=M.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)mv(r.left+r.width*(.5+Math.sin(t2)*.32),r.top+r.height*(.45+Math.sin(t2*.8)*.3))}requestAnimationFrame(d2)})();
 })();
 
 /* ---------- every framed artwork tilts in 3D and catches the light; works rise into place as you scroll ---------- */
