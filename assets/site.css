@@ -273,3 +273,78 @@ mark.tbc{background:none;color:inherit;padding:0}
 .aud-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}
 .aud-strip img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
 @media (max-width:820px){.aud-strip{grid-template-columns:1fr 1fr}}
+
+/* ===== 17 Nov 2026: Gagosian-style black, clear buttons and menu, art first ===== */
+body{background:#000}
+section.band,section.band.light,section.band.dark2,.page-hero,.site-head,.site-foot{background:#000}
+.page-hero::before{content:none}
+.light .card,.card,.person{background:#000}
+/* menu: 16px, full white, underline on hover and current page */
+.nav a,.nav button.dd{font-size:16px;letter-spacing:.04em;text-transform:none;font-weight:500;color:#fff;border-bottom:2px solid transparent}
+.nav a:hover,.nav button.dd:hover,.nav a[aria-current=page],.nav .has-dd.current>button.dd{border-bottom-color:#fff}
+.dd-menu{background:#000;border-color:#333}
+.dd-menu a{font-size:16px}
+/* buttons: solid white with black text, or crisp white outline; 16px; inverts on hover */
+.btn,.btn.sm,.light .btn,.btn.gold,.light .btn.gold{font-size:16px;letter-spacing:.04em;text-transform:none;font-weight:600;background:#fff;color:#000;border:2px solid #fff;border-radius:2px;box-shadow:none}
+.btn{padding:17px 30px}.btn.sm{padding:13px 22px}
+.btn.ghost,.light .btn.ghost{background:transparent;color:#fff;border:2px solid #fff}
+.btn:hover,.light .btn:hover,.btn.gold:hover,.body a.btn:hover,.light .body a.btn:hover{background:#000;color:#fff}
+.btn.ghost:hover,.light .btn.ghost:hover,.body a.btn.ghost:hover,.light .body a.btn.ghost:hover{background:#fff;color:#000}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:4px}
+/* nothing under 14px, nothing faint */
+.eyebrow,.crumb,.ilist .m,.tag,.brand-sub small,th{font-size:14px}
+.eyebrow,.light .eyebrow,.crumb{color:#bdbdbd;letter-spacing:.12em}
+.ilist .n,.ilist .s,.ilist .m{color:#bdbdbd}
+.site-foot{font-size:15px;color:#d0d0d0}
+/* artworks: large, uncropped, floating on black, quiet grey caption */
+.art-plate{margin:0 0 56px}
+.art-plate img{display:block;width:auto;max-width:100%;max-height:80vh;height:auto;margin:0}
+.art-plate figcaption{margin-top:16px;font-size:15px;line-height:1.55;color:#a6a6a6;max-width:760px}
+.art-plate.lead{margin:0 0 72px}
+.art-plate.lead img{width:100%;max-height:none}
+.ilist a{grid-template-columns:56px 240px minmax(0,1fr) 170px;gap:28px;align-items:start}
+.ilist .thumb{width:240px;height:auto;aspect-ratio:auto;max-height:240px;object-fit:contain;object-position:left top;border:0}
+@media (max-width:820px){.ilist a{grid-template-columns:1fr;gap:14px}.ilist .thumb{width:100%;max-height:none}}
+/* proper bulleted checklists in articles */
+.article ul.check{list-style:none;padding:0;margin:28px 0 36px;border-top:1px solid #2a2a2a}
+.article ul.check li{position:relative;padding:14px 0 14px 30px;border-bottom:1px solid #2a2a2a;font-size:18px;line-height:1.6;color:#d6d6d6}
+.article ul.check li::before{content:"";position:absolute;left:2px;top:27px;width:12px;height:1px;background:#fff}
+.article a{color:#fff}
+/* phones: full-screen black menu */
+@media (max-width:980px){
+ .site-head.open{position:fixed;inset:0;z-index:60;overflow-y:auto;background:#000}
+ .site-head.open .nav{display:flex;padding-bottom:40px}
+ .nav a,.nav button.dd{font-size:20px;padding:16px 0}
+ .has-dd .dd-menu{display:block;padding-left:18px}
+ .has-dd button.dd::after{content:none}
+ .dd-menu a{font-size:17px;color:#d6d6d6;border-bottom:0;padding:10px 0}
+ .nav .btn{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+/* artist pages and artists index */
+.a-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:end}
+.a-portrait{margin:0}.a-portrait img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;object-position:right bottom}
+.a-portrait figcaption,.aw figcaption span,.aside{font-size:15px;color:#a6a6a6;line-height:1.55}
+.a-portrait figcaption{margin-top:12px}
+.aw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:88px 64px;margin-top:40px;align-items:start}
+.aw{margin:0}.aw img{display:block;width:100%;height:auto;max-height:86vh;object-fit:contain;object-position:left top;background:#000}
+.aw figcaption{margin-top:18px;display:grid;gap:4px;justify-items:start}
+.aw figcaption b{font-weight:600;font-size:16px;color:#fff}.aw figcaption i{font-family:var(--serif);font-size:22px;color:#e6e6e6}
+.aw .btn{margin-top:12px}
+.aside{max-width:760px;margin:12px 0 0}
+.cols2{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px 80px;align-items:start}
+.intro{font-family:var(--serif);font-size:clamp(24px,2.4vw,32px);line-height:1.35;color:#fff}
+.view{font-size:18px;color:#d0d0d0;border-top:1px solid #2a2a2a;padding-top:20px;margin-top:28px}
+.artist-page dl.facts{border-color:#2a2a2a}.artist-page dl.facts div{border-color:#2a2a2a;grid-template-columns:170px 1fr}
+.artist-page dl.facts dt{color:#a6a6a6}.artist-page dl.facts dd{color:#fff}
+.bio{max-width:820px;margin-top:20px}.bio h3{margin:40px 0 12px;font-size:24px}.bio p{color:#d6d6d6}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;margin-top:30px}
+.quotes blockquote{margin:0;border-top:1px solid #fff;padding-top:22px}.quotes p{font-family:var(--serif);font-size:26px;line-height:1.3;color:#fff}.quotes cite{font-style:normal;font-size:15px;color:#a6a6a6}
+.a-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 40px;margin-top:36px}
+.a-tile{text-decoration:none;color:#fff;display:block}
+.a-tile img{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;object-position:center bottom;background:#000;transition:opacity .4s}
+.a-tile:hover img{opacity:.85}.a-tile h3{margin:18px 0 4px;font-size:26px}.a-tile p{margin:0;font-size:15px;color:#bdbdbd}
+.a-tile:hover h3{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:980px){.a-top,.cols2{grid-template-columns:1fr}.aw-grid{grid-template-columns:1fr;gap:64px}.a-tiles{grid-template-columns:1fr 1fr;gap:36px 20px}.a-tile h3{font-size:20px}}
+@media (max-width:560px){.a-tiles{grid-template-columns:1fr}}
+.article h2{font-size:16px;letter-spacing:.14em;color:#fff}
