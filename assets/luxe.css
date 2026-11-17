@@ -270,3 +270,4 @@ body.doc main>section.band input,body.doc main>section.band textarea,body.doc ma
 .ph-popart+section.band .body>div:first-child>p:first-child:not(.lead-in){font-family:inherit!important;font-size:inherit!important;line-height:inherit!important;color:inherit!important}
 p.lead-in{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(28px,2.8vw,40px)!important;line-height:1.25!important;max-width:24em;margin-bottom:1.1em!important}
 main>section.band:not(:nth-of-type(odd)) p.lead-in{color:#fff!important}
+.cw-tabs .wrap{grid-template-columns:repeat(auto-fit,minmax(0,1fr))!important}
