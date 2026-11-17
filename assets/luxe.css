@@ -468,3 +468,12 @@ body[data-cw1] section[data-tab] .aw>picture,body[data-cw1] section[data-tab] .a
 main table{display:block;max-width:100%;overflow-x:auto}
 main .cols>*,main .body{min-width:0}main table{width:100%;table-layout:fixed;display:table!important}main td,main th{overflow-wrap:anywhere}
 body[data-cw1] section[data-tab] .aw{grid-template-columns:auto minmax(260px,400px)!important;justify-content:center}@media (max-width:900px){body[data-cw1] section[data-tab] .aw{grid-template-columns:1fr!important}}
+/* hero: wall of contemporary works, the view travels and zooms into the paintings */
+@keyframes hsTravel{
+  0%{transform:scale(1.02) translate(0,0)}
+  35%{transform:scale(1.45) translate(-9%,4%)}
+  65%{transform:scale(1.8) translate(8%,-3%)}
+  100%{transform:scale(1.3) translate(4%,6%)}
+}
+.hs-s.on{animation:hsTravel 36s ease-in-out infinite alternate!important;transform-origin:50% 50%!important}
+@media (max-width:900px){@keyframes hsTravelM{0%{transform:scale(1.05)}40%{transform:scale(1.5) translate(-12%,3%)}100%{transform:scale(1.35) translate(14%,-4%)}}.hs-s.on{animation-name:hsTravelM!important}}
