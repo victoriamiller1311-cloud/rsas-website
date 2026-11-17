@@ -18,10 +18,10 @@
   var p=(location.pathname.split('/').pop()||'').replace('.html','');
   var MAP={'research':['research','Rich Simmons','artist-rich-simmons.html'],'buying':['buying','Rich Simmons','artist-rich-simmons.html'],
     'selling':['selling','Philippe de Kraan','artist-philippe-de-kraan.html'],'current-works':['current-works','Rich Simmons','artist-rich-simmons.html'],
-    'artists-we-follow':['artists','Alef','artist-alef.html'],'corporate-and-hospitality':['corporate','Philippe de Kraan','artist-philippe-de-kraan.html'],
+    'artists-we-follow':['artists','Philippe de Kraan','artist-philippe-de-kraan.html'],'corporate-and-hospitality':['corporate','Philippe de Kraan','artist-philippe-de-kraan.html'],
     'insights':['insights','Holly Mingo','artist-holly-mingo.html'],'about':['about','Rich Simmons','artist-rich-simmons.html'],
     'contact':['contact','Rich Simmons','artist-rich-simmons.html'],'why-contemporary-art':['why','Holly Mingo','artist-holly-mingo.html'],
-    'how-we-select-emerging-artists':['select','Alef','artist-alef.html'],'collecting-emerging-art':['collecting','Alef','artist-alef.html'],
+    'how-we-select-emerging-artists':['select','Holly Mingo','artist-holly-mingo.html'],'collecting-emerging-art':['collecting','Philippe de Kraan','artist-philippe-de-kraan.html'],
     'testimonials':['testimonials','Rich Simmons','artist-rich-simmons.html']};
   var m=MAP[p];if(!m)return;
   var M=document.createElement('div');M.className='ph-pop';M.setAttribute('aria-hidden','true');
