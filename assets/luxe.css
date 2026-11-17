@@ -413,3 +413,4 @@ main>section.band:not(:nth-of-type(odd)) p.lead-in{color:#fff!important}
 .hs-s,.hs-s.on{transform:none;transition:opacity 1.8s ease}
 .hs-s.on{animation:hsZoom 16s ease-in-out infinite alternate;transform-origin:62% 40%}
 @media (prefers-reduced-motion:reduce){.hs-s.on{animation:none}}
+.hs-cap{display:none!important}
