@@ -226,3 +226,9 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
 @media (max-width:820px){.a-tiles{grid-template-columns:1fr 1fr;gap:36px 18px}.a-tile h3{font-size:21px}}
 @media (max-width:820px){.mark span{font-size:14px}}
 .a-tile img{height:auto!important}.work.fit .frame.fit img{height:auto}
+/* statement: Jacobo Azagury paintings instead of the abstract panels */
+.hang.art div{background-size:cover!important;background-position:center!important;border:10px solid #0d0c0b;outline:1px solid #2a2724}
+.hang.art div:last-child{filter:none}
+.hang-cap{margin:28px 0 0;font-size:15px;color:#bdbdbd;line-height:1.6}
+.hang-cap a{color:#fff;text-underline-offset:4px;white-space:nowrap}
+.statement p.hang-cap{font:400 16px/1.6 var(--sans);max-width:30em;color:#bdbdbd;margin-top:28px}.statement p.hang-cap a{color:#fff}
