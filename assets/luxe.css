@@ -186,3 +186,22 @@ main>section.band.in>.wrap>h2::after,main>section.band.in .cols>div>h2::after,ma
 .cur.big{width:70px;height:70px;margin:-35px 0 0 -35px;background:rgba(230,203,143,.12);border-color:var(--gold-l)}
 @media (hover:none),(prefers-reduced-motion:reduce){.cur{display:none}}
 .head.solid{background:rgba(0,0,0,.95)!important}.ph-moustache .base{opacity:.5}
+/* Contact: a Rich Simmons portrait drawn in light; touch brings it to colour */
+.ph-moustache{display:none}
+.page-hero.ph-popart{min-height:min(92vh,900px)}
+.ph-pop{position:absolute;right:0;top:0;bottom:0;width:min(58vw,900px);z-index:0;pointer-events:none;transform:perspective(1400px) rotateY(var(--ry,-6deg)) rotateX(var(--rx,2deg));transition:transform 1.2s cubic-bezier(.2,.7,.1,1);-webkit-mask:linear-gradient(90deg,transparent,#000 22%);mask:linear-gradient(90deg,transparent,#000 22%)}
+.ph-pop .pl{position:absolute;inset:0;background-position:center right;background-size:cover;background-repeat:no-repeat}
+.ph-pop .base{background-image:url(lines/simmons-lines.png);opacity:.28}
+.ph-pop .colour{background-image:url(lines/simmons-colour.jpg);-webkit-mask:radial-gradient(circle 17vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.65) 40%,transparent 72%);mask:radial-gradient(circle 17vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.65) 40%,transparent 72%);opacity:.95}
+.ph-pop .lit{background-image:url(lines/simmons-lines.png);filter:drop-shadow(0 0 5px rgba(255,236,200,.7));-webkit-mask:radial-gradient(circle 30vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.35) 55%,transparent 80%);mask:radial-gradient(circle 30vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.35) 55%,transparent 80%)}
+.ph-popart .wrap{position:relative;z-index:2}
+.pop-cap{margin-top:30px!important;font-size:15px;color:#bdbdbd}.pop-cap a{color:var(--gold-l)}
+@media (max-width:900px){
+  .page-hero.ph-popart{min-height:0;padding-bottom:0}
+  .ph-pop{position:relative;width:100%;height:110vw;max-height:620px;margin-top:30px;-webkit-mask:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);mask:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);order:2}
+  .page-hero.ph-popart{display:flex!important;flex-direction:column}
+  .ph-popart .wrap{order:1}
+  .ph-pop .pl{background-position:center}
+}
+.ph-pop .colour{-webkit-mask:radial-gradient(circle 24vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.8) 45%,transparent 75%);mask:radial-gradient(circle 24vmax at var(--mx,60%) var(--my,45%),#000 0%,rgba(0,0,0,.8) 45%,transparent 75%);opacity:1}
+.ph-pop .lit{opacity:.45;-webkit-mask:radial-gradient(circle 34vmax at var(--mx,60%) var(--my,45%),transparent 0%,transparent 22%,#000 45%,rgba(0,0,0,.3) 70%,transparent 90%);mask:radial-gradient(circle 34vmax at var(--mx,60%) var(--my,45%),transparent 0%,transparent 22%,#000 45%,rgba(0,0,0,.3) 70%,transparent 90%)}
