@@ -84,3 +84,65 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;bac
 @media (max-width:980px){.icards{grid-template-columns:1fr 1fr;gap:44px 20px}.ifeature{grid-template-columns:1fr}.icard .im{height:220px}}
 @media (max-width:600px){.icards{grid-template-columns:1fr}.icard .im{height:260px}}
 .title h1 .gold-text{display:inline!important;font:inherit!important;margin:0!important;letter-spacing:inherit!important;color:transparent!important}
+
+/* ===== 17 Nov 2026 (2): futuristic and engaging: no grey dividers, ivory sections, art heroes, 3D tilt ===== */
+/* no more thin grey lines between sections */
+section.band,section.band+section.band,.band.light+.band.light,.where,.press,.artists-row,.feature,.viewing,.offer details,.site-head,.brand-row,.site-foot,.foot-top,.foot-nav,.foot-base{border-top:0!important}
+.page-hero,.site-head,.brand-row,.foot-top,.foot-nav,.offer details:last-child{border-bottom:0!important;border-image:none!important}
+.body ul li{border-bottom:0!important;padding:10px 0 10px 34px!important}
+.body ul li::before{background:var(--gold)!important;width:16px!important;top:24px!important}
+.offer details{border-top:1px solid rgba(201,164,92,.18)!important}
+
+/* inner-page hero with a painting in 3D and its line drawing lit where you touch */
+.page-hero.ph{position:relative;min-height:min(86vh,820px);display:flex;align-items:center;overflow:hidden;background:radial-gradient(ellipse 70% 80% at 78% 50%,#1b1813 0%,#080706 55%,#000 80%)!important}
+.page-hero.ph .wrap{width:100%;position:relative;z-index:2}
+.page-hero.ph .wrap>*{max-width:min(640px,52%)}
+.ph-lines{position:absolute;top:-6%;right:-4%;height:112%;aspect-ratio:1/1;z-index:0;pointer-events:none;transform:rotate(-3deg)}
+.ph-lines .ink{position:absolute;inset:0;background:var(--ink) center/contain no-repeat}
+.ph-lines .ink.base{opacity:.13}
+.ph-lines .ink.lit{-webkit-mask:radial-gradient(circle 30vmax at var(--mx,60%) var(--my,40%),#000 0%,rgba(0,0,0,.5) 45%,transparent 75%);mask:radial-gradient(circle 30vmax at var(--mx,60%) var(--my,40%),#000 0%,rgba(0,0,0,.5) 45%,transparent 75%);filter:drop-shadow(0 0 6px rgba(255,236,200,.45));opacity:.9}
+.ph-art{position:absolute;right:clamp(30px,8vw,150px);top:50%;transform:translateY(-50%);width:min(26vw,340px);margin:0;z-index:1;perspective:1100px}
+.ph-tilt{display:block;transform:rotateY(var(--ry,-10deg)) rotateX(var(--rx,2deg));transition:transform 1s cubic-bezier(.2,.7,.1,1);transform-style:preserve-3d;position:relative}
+.ph-tilt img{display:block;width:100%;height:auto}
+.ph-tilt::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--sx,30%) var(--sy,20%),rgba(255,255,255,.22),transparent 45%);mix-blend-mode:soft-light}
+.ph-art figcaption{margin-top:18px;font:400 15px/1.5 "Cormorant Garamond",Georgia,serif;color:#a49d90}
+.ph-art figcaption i{color:#e3dccd}
+@media (max-width:900px){
+  .page-hero.ph{display:block;min-height:0;padding-bottom:60px}
+  .page-hero.ph .wrap>*{max-width:none}
+  .ph-art{position:relative;right:auto;top:auto;transform:none;width:min(70vw,300px);margin:44px auto 0}
+  .ph-lines{top:auto;bottom:-4%;right:-30%;height:70%}
+}
+
+/* ivory sections to break up the black, on inner pages */
+main>section.band:nth-of-type(odd){background:#f4f0e8!important;color:#141210!important;background-image:radial-gradient(ellipse 60% 80% at 100% 0%,rgba(201,164,92,.10),transparent 60%)!important}
+main>section.band:nth-of-type(odd) :is(h1,h2,h3,h4,strong,b,.intro,dd,summary){color:#0d0b08!important}
+main>section.band:nth-of-type(odd) :is(p,li,td,th,dt,.aside,.lede,span:not(.btn):not(.meta):not(.go),figcaption,.cap){color:#3b362e!important}
+main>section.band:nth-of-type(odd) :is(.eyebrow,.meta,.crumb a,.icard .meta){color:#8a6d36!important}
+main>section.band:nth-of-type(odd) .body a:not(.btn),main>section.band:nth-of-type(odd) .article a{color:#6f5422!important}
+main>section.band:nth-of-type(odd) .btn:not(.btn-gold){background:#0d0b08!important;color:#fff!important;border-color:#0d0b08!important}
+main>section.band:nth-of-type(odd) .btn.ghost{background:transparent!important;color:#0d0b08!important;border-color:#0d0b08!important}
+main>section.band:nth-of-type(odd) .btn.ghost:hover,main>section.band:nth-of-type(odd) .btn:not(.btn-gold):hover{background:var(--gold)!important;border-color:var(--gold)!important;color:#000!important}
+main>section.band:nth-of-type(odd) :is(.card,.person,.table-wrap,th,td,details.faq,dl.facts,dl.facts div,fieldset,.icard,ol.steps li,.quotes blockquote){border-color:#d9d1bf!important;background:transparent!important}
+main>section.band:nth-of-type(odd) .icard .im{background:#ebe5d8}
+main>section.band:nth-of-type(odd) .icard .go{color:#0d0b08!important}
+main>section.band:nth-of-type(odd) .aw figcaption i{color:#2a2620!important}
+main>section.band:nth-of-type(odd) .aw figcaption span:last-of-type{color:#8a6d36!important}
+main>section.band:nth-of-type(odd) .aw:not(.photo) img{box-shadow:0 40px 70px -30px rgba(0,0,0,.55),0 0 0 1px #000!important}
+main>section.band:nth-of-type(odd) input,main>section.band:nth-of-type(odd) textarea,main>section.band:nth-of-type(odd) select{background:#fff!important;color:#000!important;border-color:#0d0b08!important}
+main>section.band:nth-of-type(odd) ol.steps .n{color:#8a6d36!important}
+main>section.band:nth-of-type(odd) .article ul.check li{color:#3b362e!important;border-color:#d9d1bf!important}
+main>section.band:nth-of-type(odd) .article blockquote{border-color:var(--gold)!important}
+
+/* 3D tilt with a sheen on framed works; works rise into place */
+.tilt{display:block;position:relative;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.2,.7,.1,1);transform-style:preserve-3d;will-change:transform}
+.tilt picture{display:block}
+.tilt::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(circle at var(--sx,50%) var(--sy,30%),rgba(255,250,235,.32),transparent 42%);mix-blend-mode:soft-light}
+.tilt.lit::after{opacity:1}
+.tilt.rise{opacity:0;transform:perspective(1000px) translateY(60px) rotateX(14deg)}
+.tilt.rise.up{opacity:1;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:opacity 1.1s,transform 1.1s cubic-bezier(.2,.7,.1,1)}
+.icard .tilt{display:flex;align-items:center;justify-content:center;height:100%}
+@media (prefers-reduced-motion:reduce){.tilt,.tilt.rise{transform:none!important;opacity:1!important}}
+.ph-lines .ink.base{opacity:.09}
+.ph-lines .ink.lit{opacity:.75;-webkit-mask:radial-gradient(circle 22vmax at var(--mx,60%) var(--my,40%),#000 0%,rgba(0,0,0,.45) 45%,transparent 75%);mask:radial-gradient(circle 22vmax at var(--mx,60%) var(--my,40%),#000 0%,rgba(0,0,0,.45) 45%,transparent 75%)}
+.ph-art{width:min(28vw,380px)}
