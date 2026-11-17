@@ -65,3 +65,14 @@
   function sp(){var h=document.documentElement.scrollHeight-innerHeight;p.style.setProperty('--p',h>0?Math.min(1,scrollY/h):0)}
   addEventListener('scroll',sp,{passive:true});sp();
 })();
+
+/* Current Works: three tabs instead of one very long page */
+(function(){
+  var nav=document.querySelector('.cw-tabs');if(!nav)return;
+  var secs=[].slice.call(document.querySelectorAll('[data-tab]')),btns=[].slice.call(nav.querySelectorAll('button'));
+  function show(t,scroll){secs.forEach(function(s){s.hidden=s.getAttribute('data-tab')!==t;if(!s.hidden)s.classList.add('in')});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-show')===t?'true':'false')});
+    if(scroll)nav.scrollIntoView({behavior:'smooth',block:'start'});try{history.replaceState(null,'','#'+t)}catch(e){}}
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-show'),true)})});
+  var h=(location.hash||'').slice(1);show(['private','hook','contemporary'].indexOf(h)>-1?h:'private',false);
+})();
