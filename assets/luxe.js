@@ -28,7 +28,7 @@
   M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg)');
   M.innerHTML='<div class="pl base"></div><div class="pl colour"></div><div class="pl lit"></div>';
   hero.classList.add('ph','ph-popart');hero.insertBefore(M,hero.firstChild);
-  var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML='Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>. Touch to bring it to colour.';
+  var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML='Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>.';
   var w=hero.querySelector('.wrap');if(w)w.appendChild(cap);
   var mv=function(x,y){var r=M.getBoundingClientRect();M.style.setProperty('--mx',((x-r.left)/r.width*100)+'%');M.style.setProperty('--my',((y-r.top)/r.height*100)+'%');M.style.setProperty('--ry',(((x/innerWidth)-.5)*-10)+'deg');M.style.setProperty('--rx',(((y/innerHeight)-.5)*8)+'deg')};
   hero.addEventListener('pointermove',function(e){mv(e.clientX,e.clientY)});hero.addEventListener('pointerdown',function(e){mv(e.clientX,e.clientY)});
@@ -75,4 +75,17 @@
     if(scroll)nav.scrollIntoView({behavior:'smooth',block:'start'});try{history.replaceState(null,'','#'+t)}catch(e){}}
   btns.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-show'),true)})});
   var h=(location.hash||'').slice(1);show(['private','hook','contemporary'].indexOf(h)>-1?h:'private',false);
+})();
+
+/* Creative pass: art lights up as it comes into view; open folded detail from links */
+(function(){
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var sel='.aw img,.avail-grid .work img,.listing img,.aud-strip img,.ifeature .art img,.icard .im img,.awork img,.works img';
+    var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero2,.ph-pop,.museum,.stage,.fh-pic,.founder-pic')});
+    if(els.length){document.documentElement.classList.add('lu');
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('lu-on');io.unobserve(e.target)}})},{threshold:.35});
+      els.forEach(function(e){e.classList.add('lu-t');io.observe(e)})}
+  }
+  function openHash(){var id=location.hash.slice(1);if(!id)return;var d=document.getElementById(id);if(d&&d.tagName==='DETAILS'){d.open=true;setTimeout(function(){d.scrollIntoView({block:'start'})},50)}}
+  openHash();addEventListener('hashchange',openHash);
 })();
