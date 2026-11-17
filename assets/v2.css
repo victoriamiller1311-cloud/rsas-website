@@ -245,3 +245,4 @@ footer .legal{margin-top:28px;max-width:70em;line-height:1.6}
 .fctrl{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:20px}.fcount{font-size:15px;color:#bdbdbd;min-width:70px;text-align:center}
 @media (max-width:820px){.fstage{height:82vh}.fslide img{max-height:calc(100% - 170px)}.fslide figcaption{flex-direction:column;align-items:center}}
 @media (prefers-reduced-motion:reduce){.fslide{transition:none;transform:none}}
+.cities{grid-template-columns:repeat(3,1fr)}@media (max-width:820px){.cities{grid-template-columns:1fr}}
