@@ -604,3 +604,7 @@ html.can-share .share .share-native{display:inline-flex}
 .nf-btns{display:flex;flex-wrap:wrap;gap:28px;align-items:center;margin-top:34px}
 .nf .hs-link{color:#fff}
 .share a,.share button{font-size:15px!important}
+.g-in.g-tall{grid-template-columns:minmax(0,1fr) minmax(280px,1fr)}
+.g-in.g-tall .g-pic{max-width:520px;justify-self:center}
+@media (min-width:901px){.g-in.g-rev .g-pic{order:2}.g-in.g-rev .g-txt{order:1}.g-lines.g-left{right:auto!important;left:-2%!important}.g-lines.g-left .ink{background-position:center left}}
+.g-lines .base{opacity:.16!important}.g-lines .colour{opacity:.3!important}.gather .g-txt p{text-shadow:0 0 18px var(--gtxt-sh,transparent)}
