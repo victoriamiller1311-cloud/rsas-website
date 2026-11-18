@@ -95,3 +95,7 @@
   function set(x,y){L.style.setProperty('--mx',x+'%');L.style.setProperty('--my',y+'%')}
   s.addEventListener('pointermove',function(e){var r=L.getBoundingClientRect();set((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100)});
   if(matchMedia('(hover: none)').matches){var t=0;(function d(){t+=.006;set(55+30*Math.sin(t),45+25*Math.sin(t*1.3));requestAnimationFrame(d)})()}})();
+/* Insights share bar: phone share sheet (Instagram, WhatsApp, Messages...) and copy link */
+(function(){var b=document.querySelector('.share');if(!b)return;
+  if(navigator.share){document.documentElement.classList.add('can-share');b.querySelector('.share-native').addEventListener('click',function(){navigator.share({title:b.getAttribute('data-title'),url:location.href.split('#')[0]}).catch(function(){})})}
+  var c=b.querySelector('.share-copy');c.addEventListener('click',function(){var u=c.getAttribute('data-url');(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){c.textContent='Link copied'},function(){prompt('Copy this link',u)});setTimeout(function(){c.textContent='Copy link'},2500)})})();

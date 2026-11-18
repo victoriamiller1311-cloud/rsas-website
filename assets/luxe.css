@@ -590,3 +590,17 @@ main .cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important}
 @media (max-width:900px){.ct-grid{grid-template-columns:1fr}.ct-row{grid-template-columns:1fr;gap:0}}
 section.ct-band{background:#f4efe6!important;color:#141210!important}section.ct-band .eyebrow{color:#8a6d36!important}.ct-form .eyebrow{color:#8a6d36!important}
 .ct-mail{font-weight:600!important}
+/* Insights: share bar */
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:48px 0 8px;padding-top:26px;border-top:1px solid rgba(201,169,106,.45)}
+.share span{width:100%;margin-bottom:6px;font:italic 400 20px/1.2 var(--serif,'Cormorant Garamond',serif);color:inherit}
+.share a,.share button{display:inline-flex;align-items:center;padding:10px 16px;border:1px solid currentColor;background:transparent;color:inherit!important;font:500 13.5px Manrope,sans-serif;letter-spacing:.05em;text-decoration:none!important;cursor:pointer;opacity:.85;transition:all .3s}
+.share a:hover,.share button:hover{opacity:1;border-color:var(--gold);color:var(--gold)!important}
+.share .share-native{display:none;background:#141210;color:#fff!important;border-color:#141210;opacity:1}
+html.can-share .share .share-native{display:inline-flex}
+/* page not found */
+.nf{min-height:72svh;display:flex;align-items:center;padding:150px 0 100px;background:radial-gradient(ellipse at 70% 40%,#1d1810 0%,#080706 65%);color:#fff}
+.nf h1{margin:0 0 20px;max-width:13em;font:300 clamp(44px,6vw,86px)/1.02 var(--serif,'Cormorant Garamond',serif);color:#fff}
+.nf p:not(.eyebrow){max-width:32em;color:#cfc9bd;font-size:17px}
+.nf-btns{display:flex;flex-wrap:wrap;gap:28px;align-items:center;margin-top:34px}
+.nf .hs-link{color:#fff}
+.share a,.share button{font-size:15px!important}
