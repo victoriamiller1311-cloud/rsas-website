@@ -527,3 +527,30 @@ section.fold-wrap ol.steps li,section.fold-wrap .cards .card{background:#fff!imp
 section.fold-wrap ol.steps .n{color:var(--gold-d)!important}
 main .cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important}
 .do-grid span.do-n{font:300 64px/1 var(--serif)!important;border:0!important;padding:0!important;letter-spacing:0!important;color:#fff!important}.do-grid span.do-n::after{content:none!important}
+/* Current Works: The Gathering, featured */
+.gather{position:relative;overflow:hidden;background:radial-gradient(ellipse at 30% 50%,#1b1610 0%,#070605 70%)!important;color:#fff;padding:clamp(90px,11vw,150px) 0!important}
+.g-lines{position:absolute;top:0;bottom:0;right:-4%;width:min(46%,640px);pointer-events:none;--mx:50%;--my:45%}
+.g-lines .ink{position:absolute;inset:0;background-size:contain;background-position:center right;background-repeat:no-repeat}
+.g-lines .base{background-image:url(lines/gather-close-lines.png);opacity:.22}
+.g-lines .colour{background-image:url(lines/gather-close.jpg);opacity:.55;-webkit-mask:radial-gradient(circle 22vmax at var(--mx) var(--my),#000 0,#000 25%,transparent 100%);mask:radial-gradient(circle 22vmax at var(--mx) var(--my),#000 0,#000 25%,transparent 100%)}
+.g-in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr);gap:clamp(36px,5vw,80px);align-items:center}
+.g-frame{background:#0e0c0a;padding:clamp(10px,1.2vw,18px);box-shadow:0 50px 90px -30px rgba(0,0,0,.9),inset 0 0 0 1px rgba(201,169,106,.35)}
+.g-frame img{display:block;width:100%;height:auto;border:clamp(10px,1.4vw,22px) solid #f3eee4;outline:2px solid #b8965a;outline-offset:-4px}
+.g-details{display:flex;gap:14px;align-items:flex-end;margin-top:22px}
+.g-details img{width:96px;height:96px;object-fit:cover;box-shadow:0 0 0 1px rgba(201,169,106,.5);transition:transform .4s}
+.g-details img:hover{transform:scale(1.8);position:relative;z-index:2}
+.g-details span{font:italic 16px var(--serif);color:#bdb6a8;margin-left:6px}
+.gather .g-txt h2{margin:0;font:300 clamp(48px,5.4vw,84px)/1 var(--serif);color:#fff}
+.gather .g-by{margin:10px 0 24px;font:italic 400 clamp(22px,2vw,28px)/1.2 var(--serif);color:#e3d9c4}
+.gather .g-txt p{color:#cfc9bd;font-size:16px;line-height:1.7}
+.gather .g-loc{font-size:14.5px!important;opacity:.85}
+.gather .g-price{margin:26px 0 28px;font:400 clamp(34px,3.4vw,48px)/1 var(--serif)!important;color:#fff!important}
+.gather .g-price span{display:block;margin-top:8px;font:400 14px/1 Manrope,sans-serif;letter-spacing:.06em;color:#bdb6a8}
+@media (max-width:900px){.g-in{grid-template-columns:1fr}.g-lines{width:90%;right:-20%;opacity:.8}.g-details img{width:78px;height:78px}}
+.gather .g-pic{width:100%;max-width:none;margin:0}
+.g-lines{width:min(34%,520px)!important;right:-2%!important}
+.g-lines .base{opacity:.3}
+.g-lines .colour{opacity:.38}
+.gather .g-txt{position:relative;z-index:2}
+@media (min-width:901px){.g-in{grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr)}.g-txt{max-width:440px}}
+@media (max-width:900px){.g-lines{top:0!important;bottom:auto!important;height:46%;width:70%!important;right:-18%!important;opacity:.7}.gather .g-txt{background:linear-gradient(180deg,rgba(244,239,230,.0),rgba(244,239,230,.92) 60px)}}

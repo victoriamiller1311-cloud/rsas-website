@@ -90,3 +90,8 @@
   openHash();addEventListener('hashchange',openHash);
 })();
 (function(){if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add(e.target.classList.contains('art-band')?'in':'lu-on');io.unobserve(e.target)}})},{threshold:.4});document.querySelectorAll('.art-band,.do-grid a').forEach(function(e){io.observe(e)})})();
+/* The Gathering: the close-up outline comes into colour where you point, or drifts on phones */
+(function(){var s=document.querySelector('.gather'),L=s&&s.querySelector('.g-lines');if(!L||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  function set(x,y){L.style.setProperty('--mx',x+'%');L.style.setProperty('--my',y+'%')}
+  s.addEventListener('pointermove',function(e){var r=L.getBoundingClientRect();set((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100)});
+  if(matchMedia('(hover: none)').matches){var t=0;(function d(){t+=.006;set(55+30*Math.sin(t),45+25*Math.sin(t*1.3));requestAnimationFrame(d)})()}})();
