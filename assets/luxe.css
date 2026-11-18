@@ -553,7 +553,7 @@ main .cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important}
 .g-lines .colour{opacity:.38}
 .gather .g-txt{position:relative;z-index:2}
 @media (min-width:901px){.g-in{grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr)}.g-txt{max-width:440px}}
-@media (max-width:900px){.g-lines{top:0!important;bottom:auto!important;height:46%;width:70%!important;right:-18%!important;opacity:.7}.gather .g-txt{background:linear-gradient(180deg,rgba(244,239,230,.0),rgba(244,239,230,.92) 60px)}}
+@media (max-width:900px){.g-lines{top:0!important;bottom:auto!important;height:46%;width:70%!important;right:-18%!important;opacity:.7}}
 /* cookie banner (only shown once tracking IDs are set) */
 #ck{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:620px;margin:0 auto;background:#0d0b09;color:#e9e3d6;border:1px solid rgba(201,169,106,.5);padding:20px 22px;display:flex;gap:18px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);font-size:14.5px;line-height:1.55}
 #ck p{margin:0;color:#d6cfc1}#ck a{color:#e3c88f}
@@ -604,7 +604,14 @@ html.can-share .share .share-native{display:inline-flex}
 .nf-btns{display:flex;flex-wrap:wrap;gap:28px;align-items:center;margin-top:34px}
 .nf .hs-link{color:#fff}
 .share a,.share button{font-size:15px!important}
-.g-in.g-tall{grid-template-columns:minmax(0,1fr) minmax(280px,1fr)}
-.g-in.g-tall .g-pic{max-width:520px;justify-self:center}
+@media (min-width:901px){.g-in.g-tall{grid-template-columns:minmax(0,1fr) minmax(280px,1fr)}.g-in.g-tall .g-pic{max-width:520px;justify-self:center}}
 @media (min-width:901px){.g-in.g-rev .g-pic{order:2}.g-in.g-rev .g-txt{order:1}.g-lines.g-left{right:auto!important;left:-2%!important}.g-lines.g-left .ink{background-position:center left}}
 .g-lines .base{opacity:.16!important}.g-lines .colour{opacity:.3!important}.gather .g-txt p{text-shadow:0 0 18px var(--gtxt-sh,transparent)}
+
+/* featured works on phones: picture full width on top, text below, outline only behind the picture */
+@media (max-width:900px){
+  .g-in,.g-in.g-tall,.g-in.g-rev{grid-template-columns:1fr!important;gap:34px}
+  .gather .g-pic{order:1!important;width:100%!important;max-width:none!important;justify-self:stretch!important}
+  .gather .g-txt{order:2!important;background:none!important}
+  .g-lines,.g-lines.g-left{top:0!important;bottom:auto!important;left:auto!important;right:-25%!important;width:90%!important;height:420px!important;opacity:.6}
+}
