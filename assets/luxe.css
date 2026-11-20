@@ -615,19 +615,3 @@ html.can-share .share .share-native{display:inline-flex}
   .gather .g-txt{order:2!important;background:none!important}
   .g-lines,.g-lines.g-left{top:0!important;bottom:auto!important;left:auto!important;right:-25%!important;width:90%!important;height:420px!important;opacity:.6}
 }
-
-/* ===== Menu bar: gold (20 Nov 2026 trial; next options white, then back to black) ===== */
-.site-head{background:var(--gold-grad)!important;border-bottom:0!important;box-shadow:0 8px 26px -16px rgba(0,0,0,.6)}
-.head.solid{background:var(--gold-grad)!important;backdrop-filter:none!important;box-shadow:0 8px 26px -16px rgba(0,0,0,.6)}
-.site-head .wm,.site-head .brand-sub,.site-head .brand,.head.solid .mark b,.head.solid .mark span,.head.solid .mark .dot{color:#141210!important}
-.site-head .nav-toggle,.head.solid .burger{color:#141210!important;border-color:#141210!important;background:transparent!important}
-.site-head .head-cta{background:#141210!important;color:#f3e7c9!important;border-color:#141210!important;box-shadow:none!important}
-@media (min-width:981px){
-  .site-head .nav a:not(.btn){color:#141210!important}
-  .site-head .nav a[aria-current]{border-color:#141210!important}
-}
-@media (min-width:821px){
-  .head.solid .menu a{color:#141210!important}
-  .head.solid .menu a:last-child{border-color:#141210!important}
-}
-.site-head.open{background:var(--gold-grad)!important}
