@@ -16,9 +16,9 @@
   var hero=document.querySelector('.page-hero');
   if(!hero||document.body.classList.contains('doc')||document.querySelector('.a-hero2')||/insight-/.test(location.pathname))return;
   var p=(location.pathname.split('/').pop()||'').replace('.html','');
-  var MAP={'research':['research','Rich Simmons','artist-rich-simmons.html'],'buying':['buying','Rich Simmons','artist-rich-simmons.html'],
-    'selling':['selling','Philippe de Kraan','artist-philippe-de-kraan.html'],'current-works':['current-works','Rich Simmons','artist-rich-simmons.html'],
-    'artists-we-follow':['artists','Philippe de Kraan','artist-philippe-de-kraan.html'],'corporate-and-hospitality':['corporate','Philippe de Kraan','artist-philippe-de-kraan.html'],
+  var MAP={'research':['research','Johannes Vermeer, The Art of Painting',''],'buying':['buying','Johannes Vermeer, Girl with a Pearl Earring',''],
+    'selling':['selling','Antoine Watteau, The Shop Sign of Gersaint',''],'current-works':['current-works','Rich Simmons','artist-rich-simmons.html'],
+    'artists-we-follow':['artists','Philippe de Kraan','artist-philippe-de-kraan.html'],'corporate-and-hospitality':['corporate','Édouard Manet, A Bar at the Folies-Bergère',''],
     'insights':['insights','Holly Mingo','artist-holly-mingo.html'],'about':['about','Rich Simmons','artist-rich-simmons.html'],
     'contact':['contact','Rich Simmons','artist-rich-simmons.html'],'why-contemporary-art':['why','Holly Mingo','artist-holly-mingo.html'],
     'how-we-select-emerging-artists':['select','Holly Mingo','artist-holly-mingo.html'],'collecting-emerging-art':['collecting','Philippe de Kraan','artist-philippe-de-kraan.html'],
@@ -28,7 +28,7 @@
   M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg)');
   M.innerHTML='<div class="pl base"></div><div class="pl colour"></div><div class="pl lit"></div>';
   hero.classList.add('ph','ph-popart');hero.insertBefore(M,hero.firstChild);
-  var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML='Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>.';
+  var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML=m[2]?'Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>.':'Detail: '+m[1]+'.';
   var w=hero.querySelector('.wrap');if(w)w.appendChild(cap);
   var mv=function(x,y){var r=M.getBoundingClientRect();M.style.setProperty('--mx',((x-r.left)/r.width*100)+'%');M.style.setProperty('--my',((y-r.top)/r.height*100)+'%');M.style.setProperty('--ry',(((x/innerWidth)-.5)*-10)+'deg');M.style.setProperty('--rx',(((y/innerHeight)-.5)*8)+'deg')};
   hero.addEventListener('pointermove',function(e){mv(e.clientX,e.clientY)});hero.addEventListener('pointerdown',function(e){mv(e.clientX,e.clientY)});
