@@ -4,7 +4,7 @@
   var CFG = { ga: '', adsConversion: '', metaPixel: '' };
   var on = CFG.ga || CFG.adsConversion || CFG.metaPixel;
   var link = document.querySelectorAll('.cookie-settings');
-  if(!on){ link.forEach(function(a){a.style.display='none'}); return; }
+  if(!on){ return; } /* no cookies in use: the footer link simply opens the Cookie Policy */
   var KEY='rsas-consent';
   function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
   function put(v){try{localStorage.setItem(KEY,v)}catch(e){}}

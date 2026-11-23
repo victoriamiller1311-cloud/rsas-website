@@ -99,3 +99,36 @@
 (function(){var b=document.querySelector('.share');if(!b)return;
   if(navigator.share){document.documentElement.classList.add('can-share');b.querySelector('.share-native').addEventListener('click',function(){navigator.share({title:b.getAttribute('data-title'),url:location.href.split('#')[0]}).catch(function(){})})}
   var c=b.querySelector('.share-copy');c.addEventListener('click',function(){var u=c.getAttribute('data-url');(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){c.textContent='Link copied'},function(){prompt('Copy this link',u)});setTimeout(function(){c.textContent='Copy link'},2500)})})();
+/* Long lists (Insights, Research Papers): filter with counts, search, sort, 12 per page */
+(function(){[].forEach.call(document.querySelectorAll('[data-list]'),function(root){
+  var grid=root.querySelector('.lst-grid'),items=[].slice.call(grid.querySelectorAll('.lst-item')),bs=[].slice.call(root.querySelectorAll('.lst-filter button')),
+      inp=root.querySelector('.lst-search'),sel=root.querySelector('.lst-sort'),pager=root.querySelector('.lst-pager'),count=root.querySelector('.lst-count'),
+      per=12,page=1,cat='all',q='',sort='new';
+  root.classList.add('lst-on');
+  function btn(t,p,lab,cur,dis){return '<button type="button" data-p="'+p+'"'+(cur?' aria-current="page" class="on"':'')+(dis?' disabled':'')+(lab?' aria-label="'+lab+'"':'')+'>'+t+'</button>'}
+  function render(scroll){
+    var words=q.split(/\s+/).filter(Boolean);
+    var list=items.filter(function(i){if(cat!=='all'&&i.getAttribute('data-cat')!==cat)return false;
+      if(cat==='all'&&!words.length&&i.getAttribute('data-feat'))return false;
+      var t=i.getAttribute('data-text');return words.every(function(w){return t.indexOf(w)>=0})});
+    list.sort(function(a,b){var x=+a.getAttribute('data-n'),y=+b.getAttribute('data-n');return sort==='new'?y-x:x-y});
+    items.forEach(function(i){i.hidden=true});list.forEach(function(i){grid.appendChild(i)});
+    var pages=Math.max(1,Math.ceil(list.length/per));if(page>pages)page=pages;
+    list.slice((page-1)*per,page*per).forEach(function(i){i.hidden=false});
+    count.textContent=list.length?('Showing '+((page-1)*per+1)+' to '+Math.min(page*per,list.length)+' of '+list.length):'Nothing matches. Try another word or category.';
+    var h='';if(pages>1){h+=btn('Previous',page-1,'Previous page',false,page===1);for(var k=1;k<=pages;k++)h+=btn(k,k,'Page '+k,k===page);h+=btn('Next',page+1,'Next page',false,page===pages)}
+    pager.innerHTML=h;
+    if(scroll){var y=root.getBoundingClientRect().top+scrollY-90;scrollTo({top:y,behavior:'smooth'})}}
+  bs.forEach(function(b){b.addEventListener('click',function(){cat=b.getAttribute('data-f');page=1;
+    bs.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});render()})});
+  var tm;inp&&inp.addEventListener('input',function(){clearTimeout(tm);tm=setTimeout(function(){q=inp.value.toLowerCase().trim();page=1;render()},150)});
+  sel&&sel.addEventListener('change',function(){sort=sel.value;page=1;render()});
+  pager.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;page=+b.getAttribute('data-p');render(true)});
+  render()})})();
+/* Menu drop-downs: the arrow opens the list on touch and keyboard; hover also opens it on desktop */
+(function(){function close(o){o.classList.remove('open');o.querySelector('.dd-t').setAttribute('aria-expanded','false')}
+  [].forEach.call(document.querySelectorAll('.dd-t'),function(b){b.addEventListener('click',function(){
+  var li=b.parentNode,open=!li.classList.contains('open');[].forEach.call(document.querySelectorAll('.dd.open'),close);
+  if(open){li.classList.add('open');b.setAttribute('aria-expanded','true')}})});
+  document.addEventListener('click',function(e){if(!e.target.closest('.dd'))[].forEach.call(document.querySelectorAll('.dd.open'),close)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')[].forEach.call(document.querySelectorAll('.dd.open'),close)})})();
