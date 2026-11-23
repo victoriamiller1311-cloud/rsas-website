@@ -25,7 +25,7 @@
     'testimonials':['testimonials','Rich Simmons','artist-rich-simmons.html']};
   var m=MAP[p];if(!m)return;
   var M=document.createElement('div');M.className='ph-pop';M.setAttribute('aria-hidden','true');
-  M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg)');
+  M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png?v=3)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg?v=3)');
   M.innerHTML='<div class="pl base"></div><div class="pl colour"></div><div class="pl lit"></div>';
   hero.classList.add('ph','ph-popart');hero.insertBefore(M,hero.firstChild);
   var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML=m[2]?'Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>.':'Detail: '+m[1]+'.';
