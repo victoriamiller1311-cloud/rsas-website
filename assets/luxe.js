@@ -16,9 +16,9 @@
   var hero=document.querySelector('.page-hero');
   if(!hero||document.body.classList.contains('doc')||document.querySelector('.a-hero2')||/insight-/.test(location.pathname))return;
   var p=(location.pathname.split('/').pop()||'').replace('.html','');
-  var MAP={'research':['research','Johannes Vermeer, The Art of Painting',''],'buying':['buying','Johannes Vermeer, Girl with a Pearl Earring',''],
-    'selling':['selling','Antoine Watteau, The Shop Sign of Gersaint',''],'current-works':['current-works','Rich Simmons','artist-rich-simmons.html'],
-    'artists-we-follow':['artists','Philippe de Kraan','artist-philippe-de-kraan.html'],'corporate-and-hospitality':['corporate','Édouard Manet, A Bar at the Folies-Bergère',''],
+  var MAP={'research':['research','Piet Mondrian, Composition II in Red, Blue and Yellow',''],'buying':['buying','Gustav Klimt, The Kiss',''],
+    'selling':['selling','Wassily Kandinsky, Composition 8',''],'current-works':['current-works','Rich Simmons','artist-rich-simmons.html'],
+    'artists-we-follow':['artists','Philippe de Kraan','artist-philippe-de-kraan.html'],'corporate-and-hospitality':['corporate','Henri Matisse, The Dessert: Harmony in Red',''],
     'insights':['insights','Holly Mingo','artist-holly-mingo.html'],'about':['about','Rich Simmons','artist-rich-simmons.html'],
     'contact':['contact','Rich Simmons','artist-rich-simmons.html'],'why-contemporary-art':['why','Holly Mingo','artist-holly-mingo.html'],
     'how-we-select-emerging-artists':['select','Holly Mingo','artist-holly-mingo.html'],'collecting-emerging-art':['collecting','Philippe de Kraan','artist-philippe-de-kraan.html'],
