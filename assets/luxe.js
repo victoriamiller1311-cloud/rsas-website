@@ -16,7 +16,7 @@
   var hero=document.querySelector('.page-hero');
   if(!hero||document.body.classList.contains('doc')||document.querySelector('.a-hero2')||/insight-/.test(location.pathname))return;
   var p=(location.pathname.split('/').pop()||'').replace('.html','');
-  var MAP={'research':['research','Piet Mondrian, Composition II in Red, Blue and Yellow',''],'buying':['buying','Gustav Klimt, The Kiss',''],
+  var MAP={'research':['research','Vincent van Gogh, Sunflowers',''],'buying':['buying','Gustav Klimt, The Kiss',''],
     'selling':['selling','Wassily Kandinsky, Composition 8',''],'current-works':['current-works','Rich Simmons','artist-rich-simmons.html'],
     'artists-we-follow':['artists','Philippe de Kraan','artist-philippe-de-kraan.html'],'corporate-and-hospitality':['corporate','Henri Matisse, The Dessert: Harmony in Red',''],
     'insights':['insights','Holly Mingo','artist-holly-mingo.html'],'about':['about','Rich Simmons','artist-rich-simmons.html'],
@@ -25,7 +25,7 @@
     'testimonials':['testimonials','Rich Simmons','artist-rich-simmons.html']};
   var m=MAP[p];if(!m)return;
   var M=document.createElement('div');M.className='ph-pop';M.setAttribute('aria-hidden','true');
-  M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png?v=3)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg?v=3)');
+  M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png?v=4)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg?v=4)');
   M.innerHTML='<div class="pl base"></div><div class="pl colour"></div><div class="pl lit"></div>';
   hero.classList.add('ph','ph-popart');hero.insertBefore(M,hero.firstChild);
   var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML=m[2]?'Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>.':'Detail: '+m[1]+'.';
