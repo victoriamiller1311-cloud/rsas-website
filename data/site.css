@@ -323,11 +323,11 @@
 .amh:before{display:none!important}
 .amh-in{padding:26px clamp(24px,3vw,48px)!important;gap:20px!important;max-width:1500px!important;box-sizing:border-box;width:100%}
 .amh .amh-logo{flex:0 0 auto!important;line-height:0;overflow:visible!important}
-.amh .amh-logo img{width:290px!important;max-width:none!important;height:auto!important;display:block}
+.amh .amh-logo img{width:300px!important;max-width:none!important;height:auto!important;display:block}
 .amh .amh-nav{flex:1 1 auto!important;min-width:0;justify-content:flex-end!important}
 .amh .amh-cta{flex:0 0 auto!important}
 [data-elementor-type=header],[data-elementor-type=header] .e-con,[data-elementor-type=header] .elementor-widget-html,[data-elementor-type=header] .elementor-widget-container{overflow:visible!important}
-@media(max-width:1500px){.amh .amh-logo img{width:255px!important}.amh .amh-nav>a,.amh .amh-dd>a{padding:12px 9px!important;letter-spacing:.1em!important;font-size:12px!important}.amh .amh-nav>a.amh-ca{padding:11px 14px!important}.amh .amh-cta{padding:14px 16px!important;letter-spacing:.12em!important}}
+@media(max-width:1500px){.amh .amh-logo img{width:270px!important}.amh .amh-nav>a,.amh .amh-dd>a{padding:12px 9px!important;letter-spacing:.1em!important;font-size:12px!important}.amh .amh-nav>a.amh-ca{padding:11px 14px!important}.amh .amh-cta{padding:14px 16px!important;letter-spacing:.12em!important}}
 @media(max-width:1240px){.amh .amh-logo img{width:220px!important}.amh .amh-nav>a[href="/financial-communication/"]{display:none}}
 @media(max-width:900px){.amh-in{padding:16px 20px!important}.amh .amh-logo img{width:210px!important}}
 
