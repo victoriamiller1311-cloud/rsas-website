@@ -767,3 +767,10 @@ section.p-grid-band .p-dl{color:#141210!important}
 .artist-page #works .aw-grid .aw-lead img{width:100%;height:auto;max-height:none}
 .artist-page #works .aw-grid .aw-lead figcaption{max-width:720px}
 .artist-page #works .aw-grid .aw-lead{max-width:980px;width:100%;justify-self:center}
+/* 26 Nov 2026: featured-work outlines fill the whole section (edge to edge, behind text and painting), like the main pages */
+.gather .g-lines,.gather .g-lines.g-left{left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;height:100%!important;opacity:1!important}
+.gather .g-lines .ink{background-size:cover!important;background-position:center!important}
+.gather .g-lines .base{opacity:.22!important}
+.gather .g-lines .colour{opacity:.42!important}
+.gather .g-txt{position:relative;z-index:2}.gather .g-pic{position:relative;z-index:2}
+@media (max-width:900px){.gather .g-lines,.gather .g-lines.g-left{height:100%!important;width:100%!important;right:0!important;left:0!important}}
