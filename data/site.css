@@ -250,20 +250,42 @@
 .amf .cutout:after{content:'';position:absolute;left:-18px;bottom:-18px;width:60%;height:60%;border-left:1px solid #C9A86A;border-bottom:1px solid #C9A86A;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.amf .ticker span{animation:none}.amf .work .gilt{transform:none}}
 @media(max-width:900px){.amf .work .gilt,.amf .hero .gilt{transform:none}.amf .artist-head:before{top:-30px}}
-/* white top bar v5 */
-.amh{background:#FFFFFF!important;border-bottom:1px solid #E4DCCD!important;box-shadow:0 2px 18px rgba(14,19,29,.06)}
-.amh-in{padding:14px clamp(20px,3vw,44px)!important}
-.amh .amh-logo img{width:150px!important;height:auto;box-shadow:none!important}
-.amh .amh-nav>a,.amh .amh-dd>a{color:#1E2A44!important;font-weight:500!important}
+/* white top bar v6 */
+.amh{background:#FFFFFF!important;border-bottom:1px solid #E4DCCD!important;box-shadow:0 4px 24px rgba(14,19,29,.07)}
+.amh:before{content:'';display:block;height:3px;background:linear-gradient(90deg,#1E2A44 0 70%,#A8864A 70% 100%)}
+.amh-in{padding:20px clamp(20px,3.4vw,56px)!important;gap:24px!important;max-width:1480px!important}
+.amh .amh-logo img{width:320px!important;height:auto;box-shadow:none!important}
+.amh .amh-nav{gap:6px!important;margin-right:10px!important}
+.amh .amh-nav>a,.amh .amh-dd>a{color:#1E2A44!important;font-size:13px!important;font-weight:500!important;letter-spacing:.14em!important;padding:14px 14px!important;position:relative}
+.amh .amh-nav>a:after,.amh .amh-dd>a:before{content:'';position:absolute;left:14px;right:14px;bottom:6px;height:1px;background:#A8864A;transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.amh .amh-nav>a:hover:after,.amh .amh-nav>a.on:after,.amh .amh-dd:hover>a:before{transform:scaleX(1)}
 .amh .amh-nav a:hover,.amh .amh-nav a.on{color:#A8864A!important}
-.amh .amh-ddm{background:#FFFFFF!important;border:1px solid #E4DCCD!important;box-shadow:0 14px 30px rgba(14,19,29,.10)}
-.amh .amh-ddm a{color:#1E2A44!important}.amh .amh-ddm a:hover{color:#A8864A!important;background:#FAF7F1!important}
-.amh .amh-cta{background:#1E2A44!important;border:1px solid #1E2A44!important;color:#FFFFFF!important}
+.amh .amh-nav>a.amh-ca{border:1px solid #A8864A!important;color:#8A6C34!important;padding:12px 18px!important;margin:0 6px}
+.amh .amh-nav>a.amh-ca:after{display:none}
+.amh .amh-nav>a.amh-ca:hover{background:#A8864A!important;color:#fff!important}
+.amh .amh-ddm{background:#FFFFFF!important;border:1px solid #E4DCCD!important;border-top:2px solid #A8864A!important;box-shadow:0 18px 36px rgba(14,19,29,.12)}
+.amh .amh-ddm a{color:#1E2A44!important;font-size:15px!important;padding:11px 22px!important}.amh .amh-ddm a:hover{color:#A8864A!important;background:#FAF7F1!important}
+.amh .amh-cta{background:#1E2A44!important;border:1px solid #1E2A44!important;color:#FFFFFF!important;font-size:12px!important;padding:16px 22px!important}
 .amh .amh-cta:hover{background:#A8864A!important;border-color:#A8864A!important}
 .amh button.amh-tog{background:transparent!important;border:1px solid #1E2A44!important;padding:10px 9px!important;width:46px!important;height:42px!important;border-radius:2px!important;box-shadow:none!important}
 .amh button.amh-tog span{display:block!important;height:2px!important;background:#1E2A44!important;margin:5px 0!important;width:100%!important}
-@media(max-width:900px){.amh .amh-logo img{width:112px!important}.amh .amh-mob{background:#FFFFFF!important}.amh .amh-mob a{color:#1E2A44!important;border-bottom:1px solid #EFE9DE!important}.amh .amh-mob a.sub{color:#5A6275!important}.amh .amh-mob a.cta{color:#A8864A!important}}
+@media(max-width:1320px){.amh .amh-logo img{width:260px!important}.amh .amh-nav>a,.amh .amh-dd>a{padding:14px 9px!important;letter-spacing:.1em!important;font-size:12px!important}}
+@media(max-width:1100px){.amh .amh-nav>a[href="/financial-communication/"]{display:none}}
+@media(max-width:900px){.amh-in{padding:14px 20px!important}.amh .amh-logo img{width:220px!important}.amh .amh-mob{background:#FFFFFF!important}.amh .amh-mob a{color:#1E2A44!important;border-bottom:1px solid #EFE9DE!important}.amh .amh-mob a.sub{color:#5A6275!important}.amh .amh-mob a.cta{color:#A8864A!important}}
 .amf .logo-mark{display:none!important}
-.amf .cutout{position:relative;max-width:440px;margin:0 auto;padding:0!important;background:none!important;border:0!important}
-.amf .cutout:before,.amf .cutout:after{display:none!important}
-.amf .cutout img{display:block;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;aspect-ratio:auto!important;border-radius:3px;box-shadow:0 22px 50px rgba(0,0,0,.28)}
+/* chiaroscuro: hero spotlight */
+.amf .spot{position:relative;overflow:hidden}
+.amf .spot img{filter:grayscale(.92) sepia(.12) brightness(.5) contrast(1.12);transition:filter .6s}
+.amf .spot img.pop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.2) brightness(1.06) contrast(1.04);
+ -webkit-mask:radial-gradient(circle var(--sr,15vmax) at var(--sx,60%) var(--sy,40%),#000 0,#000 30%,transparent 100%);mask:radial-gradient(circle var(--sr,15vmax) at var(--sx,60%) var(--sy,40%),#000 0,#000 30%,transparent 100%)}
+/* chiaroscuro: framed works sit in shadow, then tilt and light up under the cursor */
+.amf .tl{position:relative;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))!important;transition:transform .6s cubic-bezier(.2,.7,.1,1),box-shadow .6s;transform-style:preserve-3d;will-change:transform}
+.amf .tl:after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(circle at var(--lx,50%) var(--ly,30%),rgba(255,248,228,.42),transparent 45%);mix-blend-mode:soft-light;z-index:3}
+.amf .tl.lit:after{opacity:1}
+.amf .tl:not(.spot) img,.amf .tl .mat:not(.spot) img{filter:saturate(.72) brightness(.84) contrast(1.05);transition:filter .7s}
+.amf .tl.lit img,.amf .tl:hover img{filter:none}
+.amf .tl.lit .mat.spot img:not(.pop){filter:grayscale(.92) sepia(.12) brightness(.5) contrast(1.12)}
+.amf .tl.lit{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(201,168,106,.35)}
+.amf .tl.rise{opacity:0;transform:perspective(1100px) translateY(60px) rotateX(12deg)!important}
+.amf .tl.rise.up{opacity:1;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))!important;transition:opacity 1.1s,transform 1.1s cubic-bezier(.2,.7,.1,1),box-shadow .6s}
+@media(prefers-reduced-motion:reduce){.amf .tl,.amf .tl.rise{transform:none!important;opacity:1!important}.amf .spot img.pop{-webkit-mask:none;mask:none;opacity:.6}}
