@@ -201,7 +201,7 @@
 .amh{position:relative;z-index:50;background:#0B0F17;border-bottom:1px solid rgba(201,168,106,.25);font-family:'Outfit',sans-serif}
 .amh-in{max-width:1400px;margin:0 auto;padding:18px clamp(20px,3vw,44px);display:flex;align-items:center;gap:28px}
 .amh-logo{flex:0 0 auto;display:block;line-height:0}.amh-logo img{width:210px;height:auto;display:block}
-.amh-nav{flex:1;display:flex;justify-content:center;align-items:center;gap:4px}
+.amh-nav{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:18px;margin-right:18px}
 .amh-nav>a,.amh-dd>a{display:block;color:#E9E2D4;text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:12px 11px;white-space:nowrap;transition:color .2s}
 .amh-nav a:hover,.amh-nav a.on{color:#C9A86A}
 .amh-dd{position:relative}.amh-dd>a:after{content:'';display:inline-block;width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin:0 0 3px 8px}
@@ -213,7 +213,7 @@
 .amh-tog{display:none;margin-left:auto;background:none;border:0;color:#E9E2D4;cursor:pointer;padding:8px;width:44px;height:44px}
 .amh-tog span{display:block;height:1px;background:#E9E2D4;margin:6px 4px}
 .amh-mob{display:none}
-@media(max-width:1240px){.amh-nav,.amh-cta{display:none}.amh-tog{display:block}.amh-logo img{width:180px}
+@media(max-width:900px){.amh-nav,.amh-cta{display:none}.amh-tog{display:block}.amh-logo img{width:180px}
 .amh-mob{display:block;max-height:0;overflow:hidden;transition:max-height .35s;background:#0B0F17}
 .amh.open .amh-mob{max-height:900px;border-top:1px solid rgba(201,168,106,.2)}
 .amh-mob a{display:block;color:#E9E2D4;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding:14px clamp(20px,3vw,44px);border-bottom:1px solid rgba(255,255,255,.05)}
