@@ -6,13 +6,6 @@
 <script>(function(){
 var still=matchMedia('(prefers-reduced-motion: reduce)').matches,touch=matchMedia('(hover: none)').matches;
 function go(){
-/* hero spotlight: dark, almost black-and-white painting; full colour where the light falls */
-document.querySelectorAll('.amf .hero .gilt .mat').forEach(function(m){var img=m.querySelector('img');if(!img||m.querySelector('img.pop'))return;
- m.classList.add('spot');var p=img.cloneNode();p.className='pop';p.removeAttribute('srcset');p.alt='';m.appendChild(p);
- var hero=m.closest('.hero')||m,last=0,t=0;
- function mv(x,y){var r=m.getBoundingClientRect();m.style.setProperty('--sx',((x-r.left)/r.width*100)+'%');m.style.setProperty('--sy',((y-r.top)/r.height*100)+'%');}
- hero.addEventListener('pointermove',function(e){last=Date.now();mv(e.clientX,e.clientY)},{passive:true});
- if(!still)(function d(){t+=.006;if(Date.now()-last>2500){var r=m.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)mv(r.left+r.width*(.5+Math.sin(t)*.34),r.top+r.height*(.42+Math.sin(t*.8)*.3));}requestAnimationFrame(d)})();});
 /* every framed artwork tilts, catches the light and lights up; rises into place on scroll */
 var T=[].slice.call(document.querySelectorAll('.amf .gilt, .amf .frame'));
 T.forEach(function(w){w.classList.add('tl');if(still)return;
@@ -26,4 +19,19 @@ if(document.readyState!=='loading')go();else document.addEventListener('DOMConte
 <script>(function(){function go(){var still=matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelectorAll('.amf .feat').forEach(function(s){var last=0,t=Math.random()*6;function set(x,y){s.style.setProperty('--mx',x+'%');s.style.setProperty('--my',y+'%')}
 s.addEventListener('pointermove',function(e){last=Date.now();var r=s.getBoundingClientRect();set((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100)},{passive:true});
 if(!still)(function d(){t+=.005;if(Date.now()-last>2500){var r=s.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)set(58+28*Math.sin(t),45+26*Math.sin(t*1.3))}requestAnimationFrame(d)})();});}
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);})();</script>
+<script>(function(){var M={{INKMAP}};
+var P={'/about/':'audry-vestigium','/contemporary-art/':'rich-simmons-contemplating-peace','/contemporary-art/buying-and-selling/':'azagury-tavern-musicians','/contemporary-art/how-i-assess-an-artist/':'freddie-peacock-desert','/contemporary-art/artist-partnerships/':'opake-cartoon-cats','/contemporary-art/collector-guide/':'audry-numen','/research/':'holly-mingo-web-of-existence','/insight/':'slawn-2','/financial-communication/':'audry-forma-nova','/resources/':'audry-interior','/contact/':'holly-mingo-entanglement','/disclaimer/':'audry-eidolon'};
+var K=Object.keys(M);
+function go(){var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.amf .hero').forEach(function(s,i){if(s.querySelector('.hero-ink'))return;var k=null,im=s.querySelector('.gilt img');
+ if(im){var b=(im.getAttribute('src')||'').split('/').pop().replace(/(-\d+x\d+)?\.(jpe?g|png|webp)$/,'');if(M[b])k=b;}
+ if(!k)k=P[location.pathname];
+ if(!k){var p=location.pathname,hs=0;for(var j=0;j<p.length;j++)hs=(hs*31+p.charCodeAt(j))>>>0;k=K[hs%K.length];}
+ var m=M[k];if(!m)return;var d=document.createElement('div');d.className='hero-ink';d.setAttribute('aria-hidden','true');
+ d.innerHTML='<div class="ink base" style="background-image:url('+m[0]+')"></div><div class="ink colour" style="background-image:url('+m[1]+')"></div>';
+ s.insertBefore(d,s.firstChild);s.classList.add('has-ink');
+ var last=0,t=i*2;function set(x,y){s.style.setProperty('--mx',x+'%');s.style.setProperty('--my',y+'%')}
+ s.addEventListener('pointermove',function(e){last=Date.now();var r=s.getBoundingClientRect();set((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100)},{passive:true});
+ if(!still)(function dr(){t+=.004;if(Date.now()-last>2500){var r=s.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)set(60+26*Math.sin(t),45+24*Math.sin(t*1.3))}requestAnimationFrame(dr)})();});}
 if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);})();</script>
