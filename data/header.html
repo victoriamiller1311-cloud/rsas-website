@@ -24,6 +24,7 @@ if(document.readyState!=='loading')go();else document.addEventListener('DOMConte
 var P={'/about/':'audry-vestigium','/contemporary-art/':'rich-simmons-contemplating-peace','/contemporary-art/buying-and-selling/':'azagury-tavern-musicians','/contemporary-art/how-i-assess-an-artist/':'freddie-peacock-desert','/contemporary-art/artist-partnerships/':'opake-cartoon-cats','/contemporary-art/collector-guide/':'audry-numen','/research/':'holly-mingo-web-of-existence','/insight/':'slawn-2','/financial-communication/':'audry-forma-nova','/resources/':'audry-interior','/contact/':'holly-mingo-entanglement','/disclaimer/':'audry-eidolon'};
 var K=Object.keys(M);
 function go(){var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var BIZ=/^\/(financial-communication|resources|service-agreement|terms-of-use|privacy-policy|disclaimer)\//.test(location.pathname);if(BIZ){document.documentElement.classList.add('biz');document.querySelectorAll('.amf .hero').forEach(function(s){s.classList.add('biz-hero')});return;}
 document.querySelectorAll('.amf .hero').forEach(function(s,i){if(s.querySelector('.hero-ink'))return;var k=null,im=s.querySelector('.gilt img');
  if(im){var b=(im.getAttribute('src')||'').split('/').pop().replace(/(-\d+x\d+)?\.(jpe?g|png|webp)$/,'');if(M[b])k=b;}
  if(!k)k=P[location.pathname];
