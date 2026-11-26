@@ -295,3 +295,27 @@
 .amf .frame img{outline:0!important;border:clamp(14px,2.2vw,30px) solid #F7F2E8;box-shadow:inset 0 3px 8px rgba(0,0,0,.28),0 0 0 1px rgba(0,0,0,.15)!important;background:#F7F2E8}
 .amf .gilt{background:linear-gradient(135deg,#6f5220 0%,#e9d18f 16%,#a9843f 32%,#f8e9b4 48%,#9a7433 64%,#dcc07a 80%,#6f5220 100%)!important;box-shadow:0 40px 70px -28px rgba(0,0,0,.8),inset 0 0 0 1px rgba(60,40,8,.85),inset 0 0 0 4px rgba(255,244,205,.38),inset 0 0 0 8px rgba(110,80,25,.55),inset 0 0 0 10px rgba(255,236,180,.25)!important}
 .amf .tl.lit{box-shadow:0 50px 90px -24px rgba(0,0,0,.85),inset 0 0 0 1px rgba(60,40,8,.85),inset 0 0 0 4px rgba(255,244,205,.38),inset 0 0 0 8px rgba(110,80,25,.55)!important}
+/* featured work, RSAS style: the painting ghosted across the whole section, colour where the light falls */
+.amf .feat{position:relative;overflow:hidden;background:#E7E5E1;color:#1E2A44;padding:clamp(90px,10vw,150px) 0;--mx:60%;--my:45%}
+.amf .feat-bg{position:absolute;inset:0;pointer-events:none}
+.amf .feat-bg .ink{position:absolute;inset:-4%;background-size:cover;background-position:center;background-repeat:no-repeat}
+.amf .feat-bg .wash{filter:grayscale(1) contrast(.9) brightness(1.15);opacity:.16;transform:scale(1.05)}
+.amf .feat-bg .base{opacity:.55;transform:scale(1.05)}
+.amf .feat-bg .colour{opacity:.5;filter:saturate(1.1);transform:scale(1.05);-webkit-mask:radial-gradient(circle 24vmax at var(--mx) var(--my),#000 0,rgba(0,0,0,.55) 40%,transparent 80%);mask:radial-gradient(circle 24vmax at var(--mx) var(--my),#000 0,rgba(0,0,0,.55) 40%,transparent 80%)}
+.amf .feat:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(231,229,225,.88) 0%,rgba(231,229,225,.55) 36%,rgba(231,229,225,0) 62%);pointer-events:none}
+.amf .feat.rev:after{background:linear-gradient(270deg,rgba(231,229,225,.88) 0%,rgba(231,229,225,.55) 36%,rgba(231,229,225,0) 62%)}
+.amf .feat-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(40px,6vw,110px);align-items:center}
+.amf .feat.rev .feat-txt{order:2}.amf .feat.rev .feat-pic{order:1}
+.amf .feat-txt{max-width:470px}
+.amf .feat-eye{font:italic 400 22px/1.2 'Cormorant Garamond',serif!important;color:#3A4152!important;margin:0 0 6px!important;letter-spacing:0!important;text-transform:none!important}
+.amf .feat h2{font:400 clamp(54px,6vw,96px)/1 'Cormorant Garamond',serif!important;color:#141A26!important;margin:0!important;letter-spacing:-.01em}
+.amf .feat-by{font:italic 400 20px/1.3 'Cormorant Garamond',serif!important;color:#3A4152!important;margin:10px 0 26px!important}
+.amf .feat-txt p{font-size:17px;line-height:1.75;color:#262C38}
+.amf .feat-spec{font-size:15.5px!important;color:#4A5163!important}
+.amf .feat-price{font:400 clamp(30px,3vw,42px)/1 'Cormorant Garamond',serif!important;color:#141A26!important;margin:30px 0 26px!important}
+.amf .feat-btn{display:inline-flex;gap:14px;align-items:center;background:#141A26;color:#fff!important;padding:18px 30px;text-decoration:none;font-size:15px;letter-spacing:.04em;transition:background .3s}
+.amf .feat-btn:hover{background:#A8864A}
+.amf .feat-pic{margin:0}
+.amf .feat-pic .gilt{max-width:640px;margin-left:auto}
+.amf .feat.rev .feat-pic .gilt{margin-left:0;margin-right:auto}
+@media(max-width:900px){.amf .feat-in{grid-template-columns:1fr}.amf .feat .feat-pic{order:1!important}.amf .feat .feat-txt{order:2!important;max-width:none}.amf .feat:after,.amf .feat.rev:after{background:rgba(231,229,225,.55)}.amf .feat-pic .gilt{margin:0 auto!important}}
