@@ -747,3 +747,4 @@ section.p-grid-band .p-dl{color:#141210!important}
 .rs-avail li a{color:var(--gold-l);text-decoration:none;border-bottom:1px solid var(--gold);font-size:15px}
 @media (max-width:640px){.rs-avail li{grid-template-columns:1fr;gap:6px}}
 @media (min-width:1000px){.avail-home .avail-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:34px!important}}
+.hm-avail{margin-top:60px}.hm-avail li span{max-width:640px}
