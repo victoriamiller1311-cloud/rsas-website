@@ -748,3 +748,4 @@ section.p-grid-band .p-dl{color:#141210!important}
 @media (max-width:640px){.rs-avail li{grid-template-columns:1fr;gap:6px}}
 @media (min-width:1000px){.avail-home .avail-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:34px!important}}
 .hm-avail{margin-top:60px}.hm-avail li span{max-width:640px}
+@media (min-width:1000px){.artist-page #works .aw-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
