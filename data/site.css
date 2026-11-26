@@ -219,3 +219,9 @@
 .amh-mob a{display:block;color:#E9E2D4;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding:14px clamp(20px,3vw,44px);border-bottom:1px solid rgba(255,255,255,.05)}
 .amh-mob a.sub{text-transform:none;letter-spacing:.02em;font-size:15px;color:#B8B1A4;padding-left:calc(clamp(20px,3vw,44px) + 18px)}
 .amh-mob a.cta{color:#C9A86A}}
+.amh .amh-nav>a,.amh .amh-dd>a{font-size:12px!important;letter-spacing:.15em!important;line-height:1.3!important;font-family:'Outfit',sans-serif!important}
+.amh .amh-ddm a{font-size:14px!important;line-height:1.4!important;font-family:'Outfit',sans-serif!important}
+.amh .amh-cta{font-size:11.5px!important;line-height:1.2!important;font-family:'Outfit',sans-serif!important}
+.amh .amh-mob a{font-size:14px!important;font-family:'Outfit',sans-serif!important}
+[data-elementor-type=header] .e-con,[data-elementor-type=header] .e-con-inner{max-width:none!important;width:100%!important;--content-width:100%}
+@media(max-width:1420px){.amh .amh-nav>a,.amh .amh-dd>a{padding:12px 8px!important;letter-spacing:.12em!important}.amh-logo img{width:190px}.amh-in{gap:18px}}
