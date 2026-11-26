@@ -7,7 +7,7 @@
 var still=matchMedia('(prefers-reduced-motion: reduce)').matches,touch=matchMedia('(hover: none)').matches;
 function go(){
 /* hero spotlight: dark, almost black-and-white painting; full colour where the light falls */
-document.querySelectorAll('.amf .hero .gilt .mat, .amf .hero .frame').forEach(function(m){var img=m.querySelector('img');if(!img||m.querySelector('img.pop'))return;
+document.querySelectorAll('.amf .hero .gilt .mat').forEach(function(m){var img=m.querySelector('img');if(!img||m.querySelector('img.pop'))return;
  m.classList.add('spot');var p=img.cloneNode();p.className='pop';p.removeAttribute('srcset');p.alt='';m.appendChild(p);
  var hero=m.closest('.hero')||m,last=0,t=0;
  function mv(x,y){var r=m.getBoundingClientRect();m.style.setProperty('--sx',((x-r.left)/r.width*100)+'%');m.style.setProperty('--sy',((y-r.top)/r.height*100)+'%');}
