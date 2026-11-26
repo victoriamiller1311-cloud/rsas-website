@@ -254,3 +254,5 @@
 .amh .amh-logo img{width:118px!important;height:auto;border-radius:2px;box-shadow:0 0 0 1px rgba(201,168,106,.55)}
 @media(max-width:900px){.amh .amh-logo img{width:92px!important}}
 .amf .logo-mark{background:#fff;padding:0;border-radius:2px}
+.amh button.amh-tog{background:transparent!important;border:1px solid rgba(201,168,106,.6)!important;padding:10px 9px!important;width:46px!important;height:42px!important;border-radius:2px!important;box-shadow:none!important}
+.amh button.amh-tog span{display:block!important;height:2px!important;background:#E9E2D4!important;margin:5px 0!important;width:100%!important}
