@@ -342,3 +342,14 @@
 .amf .hero.has-ink:after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,15,23,.9) 0%,rgba(11,15,23,.55) 45%,rgba(11,15,23,.25) 100%)}
 .amf .hero.has-ink>.wrap{position:relative;z-index:1}
 @media(max-width:900px){.amf .hero.has-ink:after{background:rgba(11,15,23,.62)}}
+/* header v9: sticky, slims on scroll, gold hairline */
+[data-elementor-type=header]{position:sticky!important;top:0;z-index:999}
+body.admin-bar [data-elementor-type=header]{top:32px}
+.amh{background:rgba(255,255,255,.97)!important;backdrop-filter:saturate(1.2) blur(8px);border-bottom:0!important;transition:box-shadow .3s}
+.amh:after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#C9A86A 20%,#C9A86A 80%,transparent)}
+.amh-in{transition:padding .35s ease}
+.amh .amh-logo img{transition:width .35s ease}
+.amh.slim .amh-in{padding-top:10px!important;padding-bottom:10px!important}
+.amh.slim .amh-logo img{width:210px!important}
+.amh.slim{box-shadow:0 10px 30px rgba(14,19,29,.10)}
+@media(max-width:900px){.amh.slim .amh-logo img{width:170px!important}}
