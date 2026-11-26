@@ -749,3 +749,17 @@ section.p-grid-band .p-dl{color:#141210!important}
 @media (min-width:1000px){.avail-home .avail-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:34px!important}}
 .hm-avail{margin-top:60px}.hm-avail li span{max-width:640px}
 @media (min-width:1000px){.artist-page #works .aw-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+/* landscape featured work (Holly Mingo, Limitless Possibility): the painting large across the page, text beneath */
+.gather .g-in.g-wide{display:grid!important;grid-template-columns:1fr!important;gap:48px!important;align-items:start}
+.gather .g-wide .g-pic{width:100%!important;max-width:1180px!important;margin:0 auto!important;transform:none!important}
+.gather .g-wide .g-pic img{width:100%!important;height:auto!important;max-height:none!important}
+.gather .g-wide .g-txt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);column-gap:64px;max-width:1180px;margin:0 auto;width:100%}
+.gather .g-wide .g-txt>.hs-eye,.gather .g-wide .g-txt>h2,.gather .g-wide .g-txt>.g-by,.gather .g-wide .g-txt>.g-price,.gather .g-wide .g-txt>.btn{grid-column:1}
+.gather .g-wide .g-txt>p:not(.hs-eye):not(.g-by):not(.g-price){grid-column:2}
+.gather .g-wide .g-txt>h2{margin-top:0}
+@media (max-width:860px){.gather .g-wide .g-txt{grid-template-columns:1fr}.gather .g-wide .g-txt>*{grid-column:1!important}}
+.gather .g-wide .g-txt{grid-auto-rows:auto;align-items:start}
+.gather .g-wide .g-txt>.hs-eye{grid-row:1}.gather .g-wide .g-txt>h2{grid-row:2/4}.gather .g-wide .g-txt>.g-by{grid-row:4}
+.gather .g-wide .g-txt>p:nth-of-type(3){grid-row:1/3}.gather .g-wide .g-txt>p:nth-of-type(4){grid-row:3/5}.gather .g-wide .g-txt>p:nth-of-type(5){grid-row:5}
+.gather .g-wide .g-txt>.g-price{grid-row:5}.gather .g-wide .g-txt>.btn{grid-row:6;justify-self:start}
+@media (max-width:860px){.gather .g-wide .g-txt>*{grid-row:auto!important}}
