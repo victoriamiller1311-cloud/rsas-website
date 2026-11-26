@@ -774,3 +774,11 @@ section.p-grid-band .p-dl{color:#141210!important}
 .gather .g-lines .colour{opacity:.42!important}
 .gather .g-txt{position:relative;z-index:2}.gather .g-pic{position:relative;z-index:2}
 @media (max-width:900px){.gather .g-lines,.gather .g-lines.g-left{height:100%!important;width:100%!important;right:0!important;left:0!important}}
+/* 26 Nov 2026: main-page hero outlines fill the whole hero, edge to edge, behind the text, like Entanglement */
+.page-hero.ph-popart .ph-pop{left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;height:auto!important;max-height:none!important;margin:0!important;transform:none!important;-webkit-mask:none!important;mask:none!important;position:absolute!important}
+.page-hero.ph-popart .ph-pop .pl{background-size:cover!important;background-position:center!important}
+.page-hero.ph-popart .ph-pop .base{opacity:.3!important}
+.page-hero.ph-popart .wrap{text-shadow:0 0 24px rgba(0,0,0,.9),0 0 8px rgba(0,0,0,.7)}
+@media (max-width:900px){.page-hero.ph-popart{min-height:min(88vh,760px)!important;justify-content:center;padding-bottom:clamp(60px,10vw,100px)!important}}
+@media (max-width:900px){.page-hero.ph-popart .ph-pop{--mx:62%;--my:84%}}
+@media (max-width:900px){.page-hero.ph-popart::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.62) 30%,rgba(0,0,0,.62) 62%,rgba(0,0,0,.1) 100%)}}
