@@ -250,9 +250,17 @@
 .amf .cutout:after{content:'';position:absolute;left:-18px;bottom:-18px;width:60%;height:60%;border-left:1px solid #C9A86A;border-bottom:1px solid #C9A86A;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.amf .ticker span{animation:none}.amf .work .gilt{transform:none}}
 @media(max-width:900px){.amf .work .gilt,.amf .hero .gilt{transform:none}.amf .artist-head:before{top:-30px}}
-/* D4 stacked logo on white tile */
-.amh .amh-logo img{width:118px!important;height:auto;border-radius:2px;box-shadow:0 0 0 1px rgba(201,168,106,.55)}
-@media(max-width:900px){.amh .amh-logo img{width:92px!important}}
-.amf .logo-mark{background:#fff;padding:0;border-radius:2px}
-.amh button.amh-tog{background:transparent!important;border:1px solid rgba(201,168,106,.6)!important;padding:10px 9px!important;width:46px!important;height:42px!important;border-radius:2px!important;box-shadow:none!important}
-.amh button.amh-tog span{display:block!important;height:2px!important;background:#E9E2D4!important;margin:5px 0!important;width:100%!important}
+/* white top bar v5 */
+.amh{background:#FFFFFF!important;border-bottom:1px solid #E4DCCD!important;box-shadow:0 2px 18px rgba(14,19,29,.06)}
+.amh-in{padding:14px clamp(20px,3vw,44px)!important}
+.amh .amh-logo img{width:150px!important;height:auto;box-shadow:none!important}
+.amh .amh-nav>a,.amh .amh-dd>a{color:#1E2A44!important;font-weight:500!important}
+.amh .amh-nav a:hover,.amh .amh-nav a.on{color:#A8864A!important}
+.amh .amh-ddm{background:#FFFFFF!important;border:1px solid #E4DCCD!important;box-shadow:0 14px 30px rgba(14,19,29,.10)}
+.amh .amh-ddm a{color:#1E2A44!important}.amh .amh-ddm a:hover{color:#A8864A!important;background:#FAF7F1!important}
+.amh .amh-cta{background:#1E2A44!important;border:1px solid #1E2A44!important;color:#FFFFFF!important}
+.amh .amh-cta:hover{background:#A8864A!important;border-color:#A8864A!important}
+.amh button.amh-tog{background:transparent!important;border:1px solid #1E2A44!important;padding:10px 9px!important;width:46px!important;height:42px!important;border-radius:2px!important;box-shadow:none!important}
+.amh button.amh-tog span{display:block!important;height:2px!important;background:#1E2A44!important;margin:5px 0!important;width:100%!important}
+@media(max-width:900px){.amh .amh-logo img{width:112px!important}.amh .amh-mob{background:#FFFFFF!important}.amh .amh-mob a{color:#1E2A44!important;border-bottom:1px solid #EFE9DE!important}.amh .amh-mob a.sub{color:#5A6275!important}.amh .amh-mob a.cta{color:#A8864A!important}}
+.amf .logo-mark{display:none!important}
