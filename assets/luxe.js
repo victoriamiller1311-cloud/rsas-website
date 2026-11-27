@@ -132,3 +132,22 @@
   if(open){li.classList.add('open');b.setAttribute('aria-expanded','true')}})});
   document.addEventListener('click',function(e){if(!e.target.closest('.dd'))[].forEach.call(document.querySelectorAll('.dd.open'),close)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')[].forEach.call(document.querySelectorAll('.dd.open'),close)})})();
+/* Language button: English, Español, Arabic, Mandarin (Google Translate behind RSAS's own button) */
+(function(){
+  function cur(){var m=document.cookie.match(/googtrans=\/en\/([^;]+)/);return m?decodeURIComponent(m[1]):'en'}
+  function setCk(v){var d=location.hostname,e=v?'':';expires=Thu, 01 Jan 1970 00:00:00 GMT',val=v?'/en/'+v:'';
+    document.cookie='googtrans='+val+';path=/'+e;if(d.indexOf('.')>0){document.cookie='googtrans='+val+';path=/;domain='+d+e;document.cookie='googtrans='+val+';path=/;domain=.'+d.replace(/^www\./,'')+e}}
+  var c=cur(),code={en:'EN',es:'ES',ar:'AR','zh-CN':'中文'}[c]||'EN';
+  [].forEach.call(document.querySelectorAll('.lang'),function(box){
+    box.querySelector('.lang-c').textContent=code;
+    var b=box.querySelector('.lang-b');
+    b.addEventListener('click',function(e){e.stopPropagation();var o=box.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+    [].forEach.call(box.querySelectorAll('[data-l]'),function(x){if(x.getAttribute('data-l')===c)x.setAttribute('aria-current','true');
+      x.addEventListener('click',function(){var l=x.getAttribute('data-l');setCk(l==='en'?'':l);location.reload()})})});
+  document.addEventListener('click',function(){[].forEach.call(document.querySelectorAll('.lang.open'),function(o){o.classList.remove('open');o.querySelector('.lang-b').setAttribute('aria-expanded','false')})});
+  if(c!=='en'){
+    if(c==='ar')document.documentElement.classList.add('rtl');
+    window.gtInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es,ar,zh-CN',autoDisplay:false},'gt-el')};
+    var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=gtInit';s.async=true;document.body.appendChild(s);
+  }
+})();
