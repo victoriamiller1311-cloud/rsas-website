@@ -137,7 +137,7 @@
   function cur(){var m=document.cookie.match(/googtrans=\/en\/([^;]+)/);return m?decodeURIComponent(m[1]):'en'}
   function setCk(v){var d=location.hostname,e=v?'':';expires=Thu, 01 Jan 1970 00:00:00 GMT',val=v?'/en/'+v:'';
     document.cookie='googtrans='+val+';path=/'+e;if(d.indexOf('.')>0){document.cookie='googtrans='+val+';path=/;domain='+d+e;document.cookie='googtrans='+val+';path=/;domain=.'+d.replace(/^www\./,'')+e}}
-  var c=cur(),code={en:'EN',es:'ES',de:'DE',ar:'AR','zh-CN':'中文'}[c]||'EN';
+  var c=cur(),code={en:'EN',es:'ES',fr:'FR',de:'DE',it:'IT',ar:'AR','zh-CN':'中文'}[c]||'EN';
   [].forEach.call(document.querySelectorAll('.lang'),function(box){
     box.querySelector('.lang-c').textContent=code;
     var b=box.querySelector('.lang-b');
@@ -147,7 +147,7 @@
   document.addEventListener('click',function(){[].forEach.call(document.querySelectorAll('.lang.open'),function(o){o.classList.remove('open');o.querySelector('.lang-b').setAttribute('aria-expanded','false')})});
   if(c!=='en'){
     if(c==='ar')document.documentElement.classList.add('rtl');
-    window.gtInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es,de,ar,zh-CN',autoDisplay:false},'gt-el')};
+    window.gtInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es,fr,de,it,ar,zh-CN',autoDisplay:false},'gt-el')};
     var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=gtInit';s.async=true;document.body.appendChild(s);
   }
 })();
