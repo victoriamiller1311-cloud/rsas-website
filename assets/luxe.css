@@ -796,3 +796,14 @@ body{top:0!important}
 html.rtl body{direction:rtl}html.rtl .wrap,html.rtl p,html.rtl h1,html.rtl h2,html.rtl h3,html.rtl li{text-align:right}
 html.rtl .lang-m{right:auto;left:0}html.rtl .lang-m button{text-align:right}
 @media (min-width:981px){.site-head .nav .nav-cta{display:inline-flex!important;margin-left:10px;padding:10px 18px!important;font-size:14px!important}}
+.flag{width:22px;height:15px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.25);flex:0 0 auto;align-self:center}
+.lang-b .lang-f{width:20px;height:14px}
+.lang-b::before{display:none}
+.lang-m button{align-items:center}
+/* tables fit the phone screen instead of scrolling sideways */
+@media (max-width:640px){.table-wrap table{min-width:0!important;width:100%!important;font-size:14px}.table-wrap th,.table-wrap td{padding:10px 8px!important;word-break:normal;overflow-wrap:anywhere}}
+/* Arabic: text reads right to left; the header and page width stay fixed */
+html.rtl,html.rtl body{overflow-x:hidden}
+html.rtl .site-head,html.rtl .head{direction:ltr}
+html.rtl .skip:not(:focus){left:0!important;right:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;padding:0!important}
+.lang-note{margin:4px 18px 8px;font:400 12px/1.4 Manrope,sans-serif;color:#a89a7c;max-width:220px;white-space:normal}

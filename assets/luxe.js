@@ -139,7 +139,7 @@
     document.cookie='googtrans='+val+';path=/'+e;if(d.indexOf('.')>0){document.cookie='googtrans='+val+';path=/;domain='+d+e;document.cookie='googtrans='+val+';path=/;domain=.'+d.replace(/^www\./,'')+e}}
   var c=cur(),code={en:'EN',es:'ES',fr:'FR',de:'DE',it:'IT',ar:'AR','zh-CN':'中文'}[c]||'EN';
   [].forEach.call(document.querySelectorAll('.lang'),function(box){
-    box.querySelector('.lang-c').textContent=code;
+    box.querySelector('.lang-c').textContent=code;var fl={en:'gb',es:'es',fr:'fr',de:'de',it:'it',ar:'ae','zh-CN':'cn'}[c]||'gb',fi=box.querySelector('.lang-f');if(fi)fi.src='assets/flags/'+fl+'.svg';
     var b=box.querySelector('.lang-b');
     b.addEventListener('click',function(e){e.stopPropagation();var o=box.classList.toggle('open');b.setAttribute('aria-expanded',o)});
     [].forEach.call(box.querySelectorAll('[data-l]'),function(x){if(x.getAttribute('data-l')===c)x.setAttribute('aria-current','true');
@@ -150,4 +150,43 @@
     window.gtInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es,fr,de,it,ar,zh-CN',autoDisplay:false},'gt-el')};
     var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=gtInit';s.async=true;document.body.appendChild(s);
   }
+})();
+/* Checked translations for the menu, buttons and labels, so these never depend on Google (27 Nov 2026) */
+(function(){
+  var m=document.cookie.match(/googtrans=\/en\/([^;]+)/);if(!m)return;var L=decodeURIComponent(m[1]);
+  var D={
+  'Buy':{es:'Comprar',fr:'Acheter',de:'Kaufen',it:'Acquistare',ar:'شراء','zh-CN':'购买'},
+  'Sell':{es:'Vender',fr:'Vendre',de:'Verkaufen',it:'Vendere',ar:'بيع','zh-CN':'出售'},
+  'Artists':{es:'Artistas',fr:'Artistes',de:'Künstler',it:'Artisti',ar:'الفنانون','zh-CN':'艺术家'},
+  'Current Works':{es:'Obras disponibles',fr:'Œuvres disponibles',de:'Aktuelle Werke',it:'Opere disponibili',ar:'الأعمال المتاحة','zh-CN':'在售作品'},
+  'Research Papers':{es:'Estudios de investigación',fr:'Études de recherche',de:'Forschungsstudien',it:'Studi di ricerca',ar:'الأوراق البحثية','zh-CN':'研究报告'},
+  'Insights':{es:'Análisis',fr:'Analyses',de:'Einblicke',it:'Approfondimenti',ar:'رؤى','zh-CN':'洞见'},
+  'Research':{es:'Investigación',fr:'Recherche',de:'Recherche',it:'Ricerca',ar:'الأبحاث','zh-CN':'研究'},
+  'About':{es:'Quiénes somos',fr:'À propos',de:'Über uns',it:'Chi siamo',ar:'من نحن','zh-CN':'关于我们'},
+  'Contact':{es:'Contacto',fr:'Contact',de:'Kontakt',it:'Contatti',ar:'اتصل بنا','zh-CN':'联系我们'},
+  'Menu':{es:'Menú',fr:'Menu',de:'Menü',it:'Menu',ar:'القائمة','zh-CN':'导航'},
+  'Close':{es:'Cerrar',fr:'Fermer',de:'Schließen',it:'Chiudi',ar:'إغلاق','zh-CN':'关闭'},
+  'Arrange a private viewing':{es:'Concertar una visita privada',fr:'Organiser une visite privée',de:'Private Besichtigung vereinbaren',it:'Organizza una visita privata',ar:'ترتيب معاينة خاصة','zh-CN':'预约私人看展'},
+  'View current works':{es:'Ver obras disponibles',fr:'Voir les œuvres disponibles',de:'Aktuelle Werke ansehen',it:'Vedi le opere disponibili',ar:'عرض الأعمال المتاحة','zh-CN':'查看在售作品'},
+  'Enquire':{es:'Consultar',fr:'Se renseigner',de:'Anfragen',it:'Richiedi informazioni',ar:'استفسر','zh-CN':'咨询'},
+  'Enquire about this work':{es:'Consultar sobre esta obra',fr:'Se renseigner sur cette œuvre',de:'Zu diesem Werk anfragen',it:'Richiedi informazioni su quest’opera',ar:'استفسر عن هذا العمل','zh-CN':'咨询此作品'},
+  'Price on application':{es:'Precio a consultar',fr:'Prix sur demande',de:'Preis auf Anfrage',it:'Prezzo su richiesta',ar:'السعر عند الطلب','zh-CN':'价格面议'},
+  'Available':{es:'Disponible',fr:'Disponible',de:'Verfügbar',it:'Disponibile',ar:'متاح','zh-CN':'可售'},
+  'Featured work':{es:'Obra destacada',fr:'Œuvre à la une',de:'Ausgewähltes Werk',it:'Opera in evidenza',ar:'عمل مميز','zh-CN':'精选作品'},
+  'Read the article':{es:'Leer el artículo',fr:'Lire l’article',de:'Artikel lesen',it:'Leggi l’articolo',ar:'اقرأ المقال','zh-CN':'阅读文章'},
+  'Read the paper (PDF)':{es:'Leer el estudio (PDF)',fr:'Lire l’étude (PDF)',de:'Studie lesen (PDF)',it:'Leggi lo studio (PDF)',ar:'اقرأ الورقة البحثية (PDF)','zh-CN':'阅读报告（PDF）'},
+  'Read all articles':{es:'Leer todos los artículos',fr:'Lire tous les articles',de:'Alle Artikel lesen',it:'Leggi tutti gli articoli',ar:'اقرأ جميع المقالات','zh-CN':'阅读全部文章'},
+  'All Insights':{es:'Todos los análisis',fr:'Toutes les analyses',de:'Alle Einblicke',it:'Tutti gli approfondimenti',ar:'جميع الرؤى','zh-CN':'全部洞见'},
+  'Newest first':{es:'Más recientes',fr:'Plus récents',de:'Neueste zuerst',it:'Più recenti',ar:'الأحدث أولاً','zh-CN':'最新优先'},
+  'By number':{es:'Por número',fr:'Par numéro',de:'Nach Nummer',it:'Per numero',ar:'حسب الرقم','zh-CN':'按编号'},
+  'Sort':{es:'Ordenar',fr:'Trier',de:'Sortieren',it:'Ordina',ar:'ترتيب','zh-CN':'排序'},
+  'Previous':{es:'Anterior',fr:'Précédent',de:'Zurück',it:'Precedente',ar:'السابق','zh-CN':'上一页'},
+  'Next':{es:'Siguiente',fr:'Suivant',de:'Weiter',it:'Successivo',ar:'التالي','zh-CN':'下一页'}};
+  function run(root){var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),n,list=[];while(n=w.nextNode())list.push(n);
+    list.forEach(function(t){var k=t.nodeValue.trim();var e=D[k]&&D[k][L];if(!e||!t.parentElement||t.parentElement.closest('.lang'))return;
+      t.nodeValue=t.nodeValue.replace(k,e);var p=t.parentElement;p.classList.add('notranslate');p.setAttribute('translate','no')})}
+  run(document.body);
+  /* the Menu/Close label changes when the menu opens: translate it again */
+  [].forEach.call(document.querySelectorAll('.nav-toggle,.burger'),function(b){new MutationObserver(function(){var k=b.textContent.trim();if(D[k]&&D[k][L])b.textContent=D[k][L]}).observe(b,{childList:true,characterData:true,subtree:true})});
+  [].forEach.call(document.querySelectorAll('.lst-pager'),function(p){new MutationObserver(function(){run(p)}).observe(p,{childList:true})});
 })();
