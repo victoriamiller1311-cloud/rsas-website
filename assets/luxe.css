@@ -807,3 +807,6 @@ html.rtl,html.rtl body{overflow-x:hidden}
 html.rtl .site-head,html.rtl .head{direction:ltr}
 html.rtl .skip:not(:focus){left:0!important;right:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;padding:0!important}
 .lang-note{margin:4px 18px 8px;font:400 12px/1.4 Manrope,sans-serif;color:#a89a7c;max-width:220px;white-space:normal}
+html.rtl .hs-mark,html.rtl .foot-wm{direction:ltr;unicode-bidi:isolate}
+html[lang="zh-CN"] *{font-style:normal!important}
+html[lang="zh-CN"] body{word-break:normal;line-break:strict}

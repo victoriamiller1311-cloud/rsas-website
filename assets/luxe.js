@@ -28,7 +28,16 @@
   M.style.setProperty('--pl','url(lines/pop-'+m[0]+'-lines.png?v=4)');M.style.setProperty('--pc','url(lines/pop-'+m[0]+'.jpg?v=4)');
   M.innerHTML='<div class="pl base"></div><div class="pl colour"></div><div class="pl lit"></div>';
   hero.classList.add('ph','ph-popart');hero.insertBefore(M,hero.firstChild);
-  var cap=document.createElement('p');cap.className='pop-cap';cap.innerHTML=m[2]?'Detail, after a work by <a href="'+m[2]+'">'+m[1]+'</a>.':'Detail: '+m[1]+'.';
+  var lk=document.cookie.match(/googtrans=\/en\/([^;]+)/),L=lk?decodeURIComponent(lk[1]):'en';
+  var CP={es:['Detalle, a partir de una obra de {a}.','Detalle: {t}.'],fr:['Détail, d’après une œuvre de {a}.','Détail : {t}.'],de:['Detail, nach einem Werk von {a}.','Detail: {t}.'],
+    it:['Dettaglio, da un’opera di {a}.','Dettaglio: {t}.'],ar:['تفصيل، مستوحى من عمل للفنان {a}.','تفصيل: {t}.'],'zh-CN':['局部，取材自 {a} 的作品。','局部：{t}。']}[L]||['Detail, after a work by {a}.','Detail: {t}.'];
+  var TT={'Gustav Klimt, The Kiss':{es:'Gustav Klimt, El beso',fr:'Gustav Klimt, Le Baiser',de:'Gustav Klimt, Der Kuss',it:'Gustav Klimt, Il bacio',ar:'غوستاف كليمت، القُبلة','zh-CN':'古斯塔夫·克里姆特，《吻》'},
+    'Wassily Kandinsky, Composition 8':{es:'Vasili Kandinski, Composición 8',fr:'Vassily Kandinsky, Composition VIII',de:'Wassily Kandinsky, Komposition VIII',it:'Vasilij Kandinskij, Composizione VIII',ar:'فاسيلي كاندينسكي، تكوين 8','zh-CN':'瓦西里·康定斯基，《构成第八号》'},
+    'Vincent van Gogh, Sunflowers':{es:'Vincent van Gogh, Los girasoles',fr:'Vincent van Gogh, Les Tournesols',de:'Vincent van Gogh, Sonnenblumen',it:'Vincent van Gogh, I girasoli',ar:'فنسنت فان غوخ، عباد الشمس','zh-CN':'文森特·梵高，《向日葵》'},
+    'Henri Matisse, The Dessert: Harmony in Red':{es:'Henri Matisse, La mesa de postre: armonía en rojo',fr:'Henri Matisse, La Desserte, harmonie rouge',de:'Henri Matisse, Harmonie in Rot',it:'Henri Matisse, Armonia in rosso',ar:'هنري ماتيس، تناغم بالأحمر','zh-CN':'亨利·马蒂斯，《红色的和谐》'}};
+  var tt=(TT[m[1]]&&TT[m[1]][L])||m[1];
+  var cap=document.createElement('p');cap.className='pop-cap notranslate';cap.setAttribute('translate','no');cap.innerHTML=m[2]?CP[0].replace('{a}','<a href="'+m[2]+'">'+m[1]+'</a>'):CP[1].replace('{t}',tt);
+  if(L==='en'){cap.classList.remove('notranslate');cap.removeAttribute('translate')}
   var w=hero.querySelector('.wrap');if(w)w.appendChild(cap);
   var mv=function(x,y){var r=M.getBoundingClientRect();M.style.setProperty('--mx',((x-r.left)/r.width*100)+'%');M.style.setProperty('--my',((y-r.top)/r.height*100)+'%');M.style.setProperty('--ry',(((x/innerWidth)-.5)*-10)+'deg');M.style.setProperty('--rx',(((y/innerHeight)-.5)*8)+'deg')};
   hero.addEventListener('pointermove',function(e){mv(e.clientX,e.clientY)});hero.addEventListener('pointerdown',function(e){mv(e.clientX,e.clientY)});
@@ -147,15 +156,31 @@
   document.addEventListener('click',function(){[].forEach.call(document.querySelectorAll('.lang.open'),function(o){o.classList.remove('open');o.querySelector('.lang-b').setAttribute('aria-expanded','false')})});
   if(c!=='en'){
     if(c==='ar')document.documentElement.classList.add('rtl');
-    window.gtInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es,fr,de,it,ar,zh-CN',autoDisplay:false},'gt-el')};
-    var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=gtInit';s.async=true;document.body.appendChild(s);
+    /* Our own checked translations first (key pages and the footer); Google only for what is left on other pages */
+    var pg=(location.pathname.split('/').pop()||'index.html').replace(/\.html$/,'')||'index';
+    var FULL={index:1,about:1,buying:1,selling:1,'current-works':1,contact:1};
+    function google(){if(FULL[pg])return;
+      window.gtInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es,fr,de,it,ar,zh-CN',autoDisplay:false},'gt-el')};
+      var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=gtInit';s.async=true;document.body.appendChild(s)}
+    function apply(){var T=window.RSAS_I18N;if(!T)return;document.documentElement.lang=c;
+      var els=document.querySelectorAll('main *,footer *');
+      for(var i=0;i<els.length;i++){var el=els[i];if(!el.isConnected||el.closest('[data-i18n],.notranslate,[aria-hidden="true"],script,style,svg'))continue;
+        var own=null,n=0;for(var j=0;j<el.childNodes.length;j++){var ch=el.childNodes[j];if(ch.nodeType===3&&ch.nodeValue.trim()){n++;own=own||ch}}
+        if(!n)continue;var k=el.textContent.replace(/\s+/g,' ').trim(),v=T[k];
+        if(!v){if(/^(A|I|B|EM|SPAN|SMALL|STRONG)$/.test(el.tagName))continue;continue}
+        if(v.indexOf('<')<0&&n===1&&el.querySelector('input,textarea,select'))own.nodeValue=v;
+        else if(v.indexOf('<')<0&&n===1&&!el.children.length)own.nodeValue=v;
+        else el.innerHTML=v;
+        el.setAttribute('data-i18n','');el.classList.add('notranslate');el.setAttribute('translate','no')}}
+    var s2=document.createElement('script');s2.src='assets/i18n/'+c+'.js?v=2';
+    s2.onload=function(){try{apply()}catch(e){}google()};s2.onerror=google;document.head.appendChild(s2);
   }
 })();
 /* Checked translations for the menu, buttons and labels, so these never depend on Google (27 Nov 2026) */
 (function(){
   var m=document.cookie.match(/googtrans=\/en\/([^;]+)/);if(!m)return;var L=decodeURIComponent(m[1]);
   var D={
-  'Buy':{es:'Comprar',fr:'Acheter',de:'Kaufen',it:'Acquistare',ar:'شراء','zh-CN':'购买'},
+  'Buy':{es:'Comprar',fr:'Acheter',de:'Kaufen',it:'Acquistare',ar:'شراء','zh-CN':'购藏'},
   'Sell':{es:'Vender',fr:'Vendre',de:'Verkaufen',it:'Vendere',ar:'بيع','zh-CN':'出售'},
   'Artists':{es:'Artistas',fr:'Artistes',de:'Künstler',it:'Artisti',ar:'الفنانون','zh-CN':'艺术家'},
   'Current Works':{es:'Obras disponibles',fr:'Œuvres disponibles',de:'Aktuelle Werke',it:'Opere disponibili',ar:'الأعمال المتاحة','zh-CN':'在售作品'},
