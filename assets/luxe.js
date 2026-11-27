@@ -172,7 +172,7 @@
         else if(v.indexOf('<')<0&&n===1&&!el.children.length)own.nodeValue=v;
         else el.innerHTML=v;
         el.setAttribute('data-i18n','');el.classList.add('notranslate');el.setAttribute('translate','no')}}
-    var s2=document.createElement('script');s2.src='assets/i18n/'+c+'.js?v=2';
+    var s2=document.createElement('script');s2.src='assets/i18n/'+c+'.js?v=3';
     s2.onload=function(){try{apply()}catch(e){}google()};s2.onerror=google;document.head.appendChild(s2);
   }
 })();
